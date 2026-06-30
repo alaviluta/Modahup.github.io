@@ -1,8 +1,9 @@
 body {
     margin: 0;
     padding: 20px;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background: white;
+    color: black;
 }
 
 header {
@@ -19,8 +20,18 @@ nav a {
 img {
     margin: 10px 0;
     border-radius: 5px;
+    max-width: 100%;
+    height: auto;
 }
 
 a {
-    color: rgba(228, 14, 14, 0.842);
+    color: #b00000;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid blue;
+    outline-offset: 2px;
 }
