@@ -2,402 +2,143 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8">
-<title>Inicio de sesión</title>
-<link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <title>Inicio de Sesión y Registro de Usuarios | Comunidad ModaHub</title>
+    <meta name="description" content="Inicia sesión o crea una cuenta nueva en ModaHub de forma rápida. Únete como comprador o tienda y accede a las mejores utilidades de indumentaria urbana.">
+    <link rel="stylesheet" href="estilos.css">
 
-<script>
+    <script>
+        function mostrarEmpresa() {
+            let tienda = document.getElementById("tienda");
+            let empresa = document.getElementById("datosEmpresa");
+            if (tienda.checked) {
+                empresa.style.display = "block";
+            } else {
+                empresa.style.display = "none";
+            }
+        }
 
-function mostrarEmpresa() {
+        function mostrarRegistro() {
+            document.getElementById("registro").style.display = "block";
+            document.getElementById("login").style.display = "none";
+        }
 
-    let tienda =
-    document.getElementById("tienda");
+        function mostrarLogin() {
+            document.getElementById("registro").style.display = "none";
+            document.getElementById("login").style.display = "block";
+        }
 
-    let empresa =
-    document.getElementById("datosEmpresa");
+        function registrar() {
+            let usuario = document.getElementById("usuario").value;
+            let clave = document.getElementById("clave").value;
+            let edad = document.getElementById("edad").value;
 
-    if (tienda.checked) {
+            if (edad < 18) {
+                alert("Debes ser mayor de edad");
+                return false;
+            }
 
-        empresa.style.display = "block";
+            localStorage.setItem("usuarioGuardado", usuario);
+            localStorage.setItem("claveGuardada", clave);
+            alert("Cuenta creada correctamente");
+            mostrarLogin();
+            return false;
+        }
 
-    } else {
+        function iniciarSesion() {
+            let usuario = document.getElementById("usuarioLogin").value;
+            let clave = document.getElementById("claveLogin").value;
+            let usuarioGuardado = localStorage.getItem("usuarioGuardado");
+            let claveGuardada = localStorage.getItem("claveGuardada");
 
-        empresa.style.display = "none";
-
-    }
-}
-
-function mostrarRegistro(){
-
-document.getElementById(
-"registro"
-).style.display="block";
-
-document.getElementById(
-"login"
-).style.display="none";
-
-}
-
-function mostrarLogin(){
-
-document.getElementById(
-"registro"
-).style.display="none";
-
-document.getElementById(
-"login"
-).style.display="block";
-
-}
-
-function registrar(){
-
-let usuario =
-document.getElementById(
-"usuario"
-).value;
-
-let clave =
-document.getElementById(
-"clave"
-).value;
-
-let edad =
-document.getElementById(
-"edad"
-).value;
-
-if(edad < 18){
-
-alert(
-"Debes ser mayor de edad"
-);
-
-return false;
-
-}
-
-localStorage.setItem(
-"usuarioGuardado",
-usuario
-);
-
-localStorage.setItem(
-"claveGuardada",
-clave
-);
-
-alert(
-"Cuenta creada correctamente"
-);
-
-mostrarLogin();
-
-return false;
-
-}
-
-function iniciarSesion(){
-
-let usuario =
-document.getElementById(
-"usuarioLogin"
-).value;
-
-let clave =
-document.getElementById(
-"claveLogin"
-).value;
-
-let usuarioGuardado =
-localStorage.getItem(
-"usuarioGuardado"
-);
-
-let claveGuardada =
-localStorage.getItem(
-"claveGuardada"
-);
-
-if(
-usuario == usuarioGuardado &&
-clave == claveGuardada
-){
-
-localStorage.setItem(
-"usuarioModaHub",
-usuario
-);
-
-window.location =
-"index.html";
-
-}else{
-
-alert(
-"Usuario o contraseña incorrectos"
-);
-
-}
-
-return false;
-
-}
-
-</script>
-
+            if (usuario == usuarioGuardado && clave == claveGuardada) {
+                localStorage.setItem("usuarioModaHub", usuario);
+                window.location = "index.html";
+            } else {
+                alert("Usuario o contraseña incorrectos");
+            }
+            return false;
+        }
+    </script>
 </head>
 
 <body>
 
-<header>
-
-    <h2>ModaHub</h2>
-
-    <nav>
-        <a href="mapa.html">Mapa</a>
-        <a href="tiendas.html">Tiendas</a>
-        <a href="curso.html">Curso</a>
-        <a href="blog.html">Blog</a>
-        <a href="cv.html">CV</a>
-        <a href="preguntas.html">Preguntas</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="extras.html">Extras</a>
-        <a href="ranking.html">Ranking</a>
-        <a href="iniciosecion.html">Inicio de sesión</a>
-    </nav>
-
-</header>
-
-<hr>
-
-<h1>Inicio de sesión</h1>
-
-<button type="button"
-onclick="mostrarRegistro()">
-
-Crear cuenta
-
-</button>
-
-<button type="button"
-onclick="mostrarLogin()">
-
-Iniciar sesión
-
-</button>
-
-<br><br>
-
-<div id="registro">
-
-<form onsubmit="return registrar()">
-
-<h2>Crear cuenta</h2>
-
-<label for="usuario">
-Usuario:
-</label>
-
-<br>
-
-<input
-type="text"
-id="usuario"
-required
-minlength="3">
-
-<br><br>
-
-<label for="clave">
-Contraseña:
-</label>
-
-<br>
-
-<input
-type="password"
-id="clave"
-required
-minlength="4">
-
-<br><br>
-
-<label for="correo">
-Correo:
-</label>
-
-<br>
-
-<input
-type="email"
-id="correo"
-required>
-
-<br><br>
-
-<label for="edad">
-Edad:
-</label>
-
-<br>
-
-<input
-type="number"
-id="edad"
-required>
-
-<br><br>
-
-<label>
-Tipo de usuario:
-</label>
-
-<br>
-
-<input
-type="radio"
-id="comprador"
-name="tipo"
-onclick="mostrarEmpresa()"
-required>
-
-<label for="comprador">
-Comprador
-</label>
-
-<br>
-
-<input
-type="radio"
-id="tienda"
-name="tipo"
-onclick="mostrarEmpresa()">
-
-<label for="tienda">
-Tienda o negocio
-</label>
-
-<br><br>
-
-<div id="datosEmpresa"
-style="display:none;">
-
-<h2>Datos del negocio</h2>
-
-<label>
-Nombre de empresa:
-</label>
-
-<br>
-
-<input
-type="text"
-id="empresa">
-
-<br><br>
-
-<label>
-Descripción:
-</label>
-
-<br>
-
-<textarea
-id="descripcion"
-rows="4"
-cols="40">
-</textarea>
-
-<br><br>
-
-<label>
-Logo:
-</label>
-
-<br>
-
-<input
-type="file"
-id="imagen">
-
-</div>
-
-<br>
-
-<input
-type="checkbox"
-required>
-
-Acepto términos y condiciones
-
-<br><br>
-
-<button type="submit">
-Crear cuenta
-</button>
-
-<button type="reset">
-Borrar
-</button>
-
-</form>
-
-</div>
-
-<div id="login"
-style="display:none;">
-
-<form onsubmit="return iniciarSesion()">
-
-<h2>Iniciar sesión</h2>
-
-<label>
-Usuario:
-</label>
-
-<br>
-
-<input
-type="text"
-id="usuarioLogin"
-required>
-
-<br><br>
-
-<label>
-Contraseña:
-</label>
-
-<br>
-
-<input
-type="password"
-id="claveLogin"
-required>
-
-<br><br>
-
-<button type="submit">
-Entrar
-</button>
-
-</form>
-
-</div>
-
-<br><br>
-
-<img
-src="imagenes/ropaurbana.png"
-width="300">
-
-<br><br>
-
-<a href="index.html">
-Volver al inicio
-</a>
+    <h1>Gestión de Usuarios: Iniciar Sesión y Registro</h1>
+
+    <h2>Forma parte de la comunidad de moda y ropa urbana más grande</h2>
+    <p>
+        Registrarte en ModaHub te otorga acceso inmediato a un panel interactivo personalizado donde podrás guardar los locales de indumentaria que más te gusten, escribir reseñas honestas sobre la calidad de tus zapatillas compradas y recibir notificaciones automatizadas de promociones de marcas líderes. Nuestro sistema es rápido, completamente seguro y te conecta al instante con el corazón de la movida del streetwear local e internacional.
+    </p>
+
+    <button type="button" onclick="mostrarRegistro()">Crear cuenta</button>
+    <button type="button" onclick="mostrarLogin()">Iniciar sesión</button>
+
+    <br><br>
+
+    <div id="registro">
+        <form onsubmit="return registrar()">
+            <h2>Crear cuenta de usuario nueva</h2>
+
+            <label for="usuario">Usuario:</label><br>
+            <input type="text" id="usuario" required minlength="3"><br><br>
+
+            <label for="clave">Contraseña:</label><br>
+            <input type="password" id="clave" required minlength="4"><br><br>
+
+            <label for="correo">Correo:</label><br>
+            <input type="email" id="correo" required><br><br>
+
+            <label for="edad">Edad:</label><br>
+            <input type="number" id="edad" required><br><br>
+
+            <label>Tipo de usuario:</label><br>
+            <input type="radio" id="comprador" name="tipo" onclick="mostrarEmpresa()" required>
+            <label for="comprador">Comprador interesado en tendencias</label><br>
+            <input type="radio" id="tienda" name="tipo" onclick="mostrarEmpresa()">
+            <label for="tienda">Tienda o negocio de indumentaria urbana</label><br><br>
+
+            <div id="datosEmpresa" style="display:none;">
+                <h2>Datos comerciales del negocio o showroom</h2>
+                <label>Nombre de empresa:</label><br>
+                <input type="text" id="empresa"><br><br>
+
+                <label>Descripción comercial de tu marca:</label><br>
+                <textarea id="descripcion" rows="4" cols="40"></textarea><br><br>
+
+                <label>Logo de la marca corporativa:</label><br>
+                <input type="file" id="imagen">
+            </div>
+            <br>
+            <input type="checkbox" required> Acepto todos los términos de uso y condiciones de privacidad
+            <br><br>
+            <button type="submit">Crear cuenta</button>
+            <button type="reset">Borrar todo</button>
+        </form>
+    </div>
+
+    <div id="login" style="display:none;">
+        <h2>Iniciar sesión en tu cuenta activa</h2>
+        <form onsubmit="return iniciarSesion()">
+            <label>Usuario registrado:</label><br>
+            <input type="text" id="usuarioLogin" required><br><br>
+
+            <label>Contraseña secreta:</label><br>
+            <input type="password" id="claveLogin" required><br><br>
+
+            <button type="submit">Entrar a la plataforma</button>
+        </form>
+    </div>
+
+    <h3>Ventajas de registrar tu marca comercial con nosotros</h3>
+    <p>
+        Si sos dueño de un local o showroom de indumentaria urbana, crear un perfil comercial en nuestra plataforma aumentará de forma exponencial tu visibilidad digital ante un público objetivo altamente segmentado que busca exactamente tus productos. Podrás actualizar tus catálogos de prendas, publicar ofertas flash de zapatillas y figurar en el mapa geolocalizado de búsquedas frecuentes, impulsando tus ventas diarias de manera efectiva y económica.
+    </p>
+
+    <br><br>
+    <img src="imagenes/ropaurbana.png" width="300" alt="Formulario de inicio de sesión seguro ilustrado con indumentaria de moda de fondo">
+    <br><br>
+    <a href="index.html">Volver al inicio</a>
 
 </body>
 </html>
