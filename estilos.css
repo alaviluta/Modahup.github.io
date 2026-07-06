@@ -1,37 +1,268 @@
-body {
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background: white;
-    color: black;
+    padding: 0;
 }
 
+body {
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fcfcfc;
+    color: #222222;
+    line-height: 1.6;
+}
+
+/* --- Contenedor general para dar un margen limpio al flujo de lectura --- */
+body > h1, 
+body > h2, 
+body > h3, 
+body > p, 
+body > form, 
+body > div, 
+body > a,
+body > label {
+    display: block;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Evitar que los enlaces inline rompan el diseño de bloque del contenedor */
+body > a {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* --- Encabezado Principal (Header & Navegación) --- */
 header {
-    border-bottom: 1px solid black;
-    padding: 10px;
+    background-color: #111111; /* Negro urbano */
+    color: #ffffff;
+    padding: 25px 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+header h2 {
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+header #sesion {
+    text-align: center;
+    font-size: 13px;
+    color: #aaaaaa;
+    margin-bottom: 10px;
+}
+
+header #botonCerrar {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+header #botonCerrar button {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 nav a {
-    margin: 10px;
+    color: #eeeeee;
     text-decoration: none;
-    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
+nav a:hover {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+/* --- Tipografía Jerárquica y SEO --- */
+h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #111111;
+    line-height: 1.2;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #111111;
+    padding-left: 15px !important;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555555;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 15.5px;
+    color: #444444;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* --- Enlaces Globales --- */
+a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #004499;
+    text-decoration: underline;
+}
+
+/* --- Imágenes Optimizadas --- */
 img {
-    margin: 10px 0;
-    border-radius: 5px;
+    display: block;
     max-width: 100%;
     height: auto;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    border: 1px solid #e1e1e1;
 }
 
-a {
-    color: #b00000;
+/* --- Formularios y Elementos de Interfaz (iniciosecion.html) --- */
+form {
+    background: #ffffff;
+    padding: 30px !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eeeeee;
+    margin-top: 25px;
+    margin-bottom: 35px;
 }
 
-a:focus,
-button:focus,
-input:focus,
+form h2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 10px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
 textarea:focus {
-    outline: 3px solid blue;
-    outline-offset: 2px;
+    border-color: #111111;
+    outline: none;
+}
+
+/* Botones modernos */
+button, 
+input[type="submit"], 
+input[type="reset"] {
+    background-color: #111111;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+button:hover, 
+input[type="submit"]:hover {
+    background-color: #333333;
+}
+
+input[type="reset"] {
+    background-color: #e0e0e0;
+    color: #333333;
+}
+
+input[type="reset"]:hover {
+    background-color: #d0d0d0;
+}
+
+/* Selectores de Login / Registro superiores */
+body > button {
+    display: inline-block;
+    margin-bottom: 20px;
+    max-width: fit-content;
+}
+
+/* Separadores elegantes */
+hr {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+/* Estilos de datos de empresa e interactivos */
+#datosEmpresa {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 3px solid #111111;
+    border-radius: 4px;
+    margin-top: 15px;
 }
