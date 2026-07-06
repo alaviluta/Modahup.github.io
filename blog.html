@@ -1,35 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Blog - ModaHub</title>
+    <title>Blog de Moda Streetwear | Lanzamientos de Nike, Adidas y Más</title>
+    <meta name="description" content="Mantenete al día con nuestro blog de moda urbana. Reseñas de la nueva colección de Nike, expansión de Adidas y las tendencias más candentes de la temporada.">
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
-<h1>Blog</h1>
+    <header>
+        <h2>ModaHub</h2>
+        <p id="sesion"></p>
+        <div id="botonCerrar"></div>
 
-<h2>Nike lanza nueva colección</h2>
+        <nav>
+            <a href="mapa.html">Mapa</a>
+            <a href="tiendas.html">Tiendas</a>
+            <a href="curso.html">Curso</a>
+            <a href="blog.html">Blog</a>
+            <a href="cv.html">CV</a>
+            <a href="preguntas.html">Preguntas</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="extras.html">Extras</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="iniciosecion.html">Inicio de sesión</a>
+        </nav>
+    </header>
 
-<img src="imagenes/tendencia.png" alt="Nueva colección de Nike" width="300">
+    <h1>Blog de Tendencias Urbanas y Lanzamientos</h1>
 
-<p>Nike presentó una nueva colección moderna y cómoda.</p>
+    <h2>Nike lanza nueva colección de indumentaria moderna</h2>
+    <img src="imagenes/tendencia.png" width="300" alt="Modelos luciendo la nueva colección moderna y cómoda de indumentaria Nike urbana">
+    <p>
+        La icónica marca de la pipa, Nike, ha presentado oficialmente a nivel mundial su nueva línea de ropa diseñada específicamente para quienes priorizan el confort sin sacrificar la elegancia en entornos urbanos[cite: 2]. Esta colección destaca por el uso de textiles reciclados de alta tecnología, cortes ergonómicos que se adaptan al movimiento natural del cuerpo y una paleta de colores neutros muy fáciles de combinar[cite: 2]. Es una propuesta disruptiva que promete redefinir la vestimenta urbana diaria.
+    </p>
+    <a href="nike.html">Ver catálogo Nike</a>
 
-<a href="nike.html">Ver catálogo Nike</a>
+    <hr>
 
-<hr>
+    <h2>Adidas sigue creciendo en el mercado de la moda urbana</h2>
+    <img src="imagenes/oferta.png" width="300" alt="Lanzamiento de las nuevas líneas de indumentaria deportiva y urbana de Adidas">
+    <p>
+        Por su parte, Adidas continúa expandiendo su dominio global mediante el lanzamiento de líneas deportivas experimentales en colaboración con diseñadores independientes de renombre[cite: 2]. Sus nuevos conjuntos combinan telas técnicas impermeables con detalles reflectantes ideales para la vida nocturna en las grandes urbes. Esta estrategia reafirma el crecimiento sostenido de la compañía y su compromiso con los consumidores que buscan destacar con autenticidad en las calles[cite: 2].
+    </p>
+    <a href="adidas.html">Ver catálogo Adidas</a>
 
-<h2>Adidas sigue creciendo</h2>
+    <h3>Análisis de tendencias: El futuro del calzado y la ropa urbana</h3>
+    <p>
+        El fenómeno del coleccionismo de calzado y la búsqueda de prendas vintage auténticas están empujando a las grandes corporaciones a reinventarse constantemente. En este blog analizamos mensualmente cómo impactan estos movimientos culturales en el consumo cotidiano. Te recomendamos seguir atentamente nuestras actualizaciones semanales para enterarte de eventos de intercambio, ferias americanas destacadas y cupones de descuento exclusivos que gestionamos directamente para los miembros activos de la comunidad de ModaHub.
+    </p>
 
-<img src="imagenes/oferta.png" alt="Oferta de Adidas" width="300">
-
-<p>Adidas lanzó nuevas líneas deportivas y en oferta.</p>
-
-<a href="adidas.html">Ver catálogo Adidas</a>
-
-<br><br>
-
-<a href="index.html">Volver al inicio</a>
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
 
 </body>
 </html>
