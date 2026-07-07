@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>Iniciar Sesión o Registrarse | ModaHub</title>
-    <meta name="description" content="Iniciá sesión o registrate en ModaHub de forma segura. Accedé a funciones exclusivas, rankings y comentarios sobre marcas de indumentaria urbana.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaHub - Iniciar Sesión</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
 
     <header>
         <h2>ModaHub</h2>
-        <p id="sesion"></p>
-        <div id="botonCerrar"></div>
-
         <nav>
+            <a href="index.html">Inicio</a>
             <a href="mapa.html">Mapa</a>
             <a href="tiendas.html">Tiendas</a>
             <a href="curso.html">Curso</a>
@@ -25,82 +21,32 @@
             <a href="contacto.html">Contacto</a>
             <a href="extras.html">Extras</a>
             <a href="ranking.html">Ranking</a>
-            <a href="iniciosecion.html">Inicio de sesión</a>
+            <a href="iniciosecion.html" style="text-decoration: underline;">Inicio de sesión</a>
         </nav>
     </header>
 
-    <h1>Acceso a la Comunidad ModaHub</h1>
+    <main style="padding: 20px;">
+        <div style="max-width: 400px; margin: 40px auto; padding: 30px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; margin-bottom: 20px;">Ingresá a tu Cuenta</h2>
+            
+            <form>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Usuario o Email:</label>
+                    <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" required>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px;">Contraseña:</label>
+                    <input type="password" style="width: 100%; padding: 8px; box-sizing: border-box;" required>
+                </div>
 
-    <button onclick="mostrarLogin()">Quiero Iniciar Sesión</button>
-    <button onclick="mostrarRegistro()">Quiero Registrarme</button>
-
-    <form id="formularioLogin" onsubmit="procesarLogin(event)">
-        <h2>Formulario de Inicio de Sesión</h2>
-        <label for="usuarioLog">Nombre de usuario:</label>
-        <input type="text" id="usuarioLog" required placeholder="Ingresá tu usuario">
-        
-        <label for="claveLog">Contraseña:</label>
-        <input type="password" id="claveLog" required placeholder="Ingresá tu clave">
-        
-        <br><br>
-        <input type="submit" value="Ingresar">
-        <input type="reset" value="Limpiar campos">
-    </form>
-
-    <form id="formularioRegistro" onsubmit="procesarRegistro(event)" style="display: none;">
-        <h2>Formulario de Registro Nuevo</h2>
-        <label for="usuarioReg">Elegí tu nombre de usuario:</label>
-        <input type="text" id="usuarioReg" required placeholder="Mínimo 4 caracteres">
-        
-        <label for="claveReg">Creá una contraseña segura:</label>
-        <input type="password" id="claveReg" required placeholder="Usá letras y números">
-        
-        <label for="emailReg">Correo electrónico:</label>
-        <input type="email" id="emailReg" required placeholder="ejemplo@correo.com">
-        
-        <br><br>
-        <input type="submit" value="Crear cuenta">
-        <input type="reset" value="Limpiar campos">
-    </form>
-
-    <script>
-        let usuario = localStorage.getItem("usuarioModaHub");
-        if (usuario) {
-            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
-            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
-        }
-
-        function cerrarSesion() {
-            localStorage.removeItem("usuarioModaHub");
-            location.reload();
-        }
-
-        function mostrarLogin() {
-            document.getElementById("formularioLogin").style.display = "block";
-            document.getElementById("formularioRegistro").style.display = "none";
-        }
-
-        function mostrarRegistro() {
-            document.getElementById("formularioLogin").style.display = "none";
-            document.getElementById("formularioRegistro").style.display = "block";
-        }
-
-        function procesarLogin(e) {
-            e.preventDefault();
-            let u = document.getElementById("usuarioLog").value;
-            localStorage.setItem("usuarioModaHub", u);
-            alert("¡Bienvenido/a de nuevo a ModaHub, " + u + "!");
-            window.location.href = "index.html";
-        }
-
-        function procesarRegistro(e) {
-            e.preventDefault();
-            let u = document.getElementById("usuarioReg").value;
-            localStorage.setItem("usuarioModaHub", u);
-            alert("¡Cuenta creada con éxito! Ya iniciaste sesión como: " + u);
-            window.location.href = "index.html";
-        }
-    </script>
+                <div style="display: flex; justify-content: center; gap: 15px; width: 100%;">
+                    <button type="submit" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Entrar</button>
+                    <button type="button" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    </main>
 
 </body>
 </html>
