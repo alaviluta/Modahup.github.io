@@ -3,142 +3,104 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Inicio de Sesión y Registro de Usuarios | Comunidad ModaHub</title>
-    <meta name="description" content="Inicia sesión o crea una cuenta nueva en ModaHub de forma rápida. Únete como comprador o tienda y accede a las mejores utilidades de indumentaria urbana.">
+    <title>Iniciar Sesión o Registrarse | ModaHub</title>
+    <meta name="description" content="Iniciá sesión o registrate en ModaHub de forma segura. Accedé a funciones exclusivas, rankings y comentarios sobre marcas de indumentaria urbana.">
     <link rel="stylesheet" href="estilos.css">
-
-    <script>
-        function mostrarEmpresa() {
-            let tienda = document.getElementById("tienda");
-            let empresa = document.getElementById("datosEmpresa");
-            if (tienda.checked) {
-                empresa.style.display = "block";
-            } else {
-                empresa.style.display = "none";
-            }
-        }
-
-        function mostrarRegistro() {
-            document.getElementById("registro").style.display = "block";
-            document.getElementById("login").style.display = "none";
-        }
-
-        function mostrarLogin() {
-            document.getElementById("registro").style.display = "none";
-            document.getElementById("login").style.display = "block";
-        }
-
-        function registrar() {
-            let usuario = document.getElementById("usuario").value;
-            let clave = document.getElementById("clave").value;
-            let edad = document.getElementById("edad").value;
-
-            if (edad < 18) {
-                alert("Debes ser mayor de edad");
-                return false;
-            }
-
-            localStorage.setItem("usuarioGuardado", usuario);
-            localStorage.setItem("claveGuardada", clave);
-            alert("Cuenta creada correctamente");
-            mostrarLogin();
-            return false;
-        }
-
-        function iniciarSesion() {
-            let usuario = document.getElementById("usuarioLogin").value;
-            let clave = document.getElementById("claveLogin").value;
-            let usuarioGuardado = localStorage.getItem("usuarioGuardado");
-            let claveGuardada = localStorage.getItem("claveGuardada");
-
-            if (usuario == usuarioGuardado && clave == claveGuardada) {
-                localStorage.setItem("usuarioModaHub", usuario);
-                window.location = "index.html";
-            } else {
-                alert("Usuario o contraseña incorrectos");
-            }
-            return false;
-        }
-    </script>
 </head>
 
 <body>
 
-    <h1>Gestión de Usuarios: Iniciar Sesión y Registro</h1>
+    <header>
+        <h2>ModaHub</h2>
+        <p id="sesion"></p>
+        <div id="botonCerrar"></div>
 
-    <h2>Forma parte de la comunidad de moda y ropa urbana más grande</h2>
-    <p>
-        Registrarte en ModaHub te otorga acceso inmediato a un panel interactivo personalizado donde podrás guardar los locales de indumentaria que más te gusten, escribir reseñas honestas sobre la calidad de tus zapatillas compradas y recibir notificaciones automatizadas de promociones de marcas líderes. Nuestro sistema es rápido, completamente seguro y te conecta al instante con el corazón de la movida del streetwear local e internacional.
-    </p>
+        <nav>
+            <a href="mapa.html">Mapa</a>
+            <a href="tiendas.html">Tiendas</a>
+            <a href="curso.html">Curso</a>
+            <a href="blog.html">Blog</a>
+            <a href="cv.html">CV</a>
+            <a href="preguntas.html">Preguntas</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="extras.html">Extras</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="iniciosecion.html">Inicio de sesión</a>
+        </nav>
+    </header>
 
-    <button type="button" onclick="mostrarRegistro()">Crear cuenta</button>
-    <button type="button" onclick="mostrarLogin()">Iniciar sesión</button>
+    <h1>Acceso a la Comunidad ModaHub</h1>
 
-    <br><br>
+    <button onclick="mostrarLogin()">Quiero Iniciar Sesión</button>
+    <button onclick="mostrarRegistro()">Quiero Registrarme</button>
 
-    <div id="registro">
-        <form onsubmit="return registrar()">
-            <h2>Crear cuenta de usuario nueva</h2>
+    <form id="formularioLogin" onsubmit="procesarLogin(event)">
+        <h2>Formulario de Inicio de Sesión</h2>
+        <label for="usuarioLog">Nombre de usuario:</label>
+        <input type="text" id="usuarioLog" required placeholder="Ingresá tu usuario">
+        
+        <label for="claveLog">Contraseña:</label>
+        <input type="password" id="claveLog" required placeholder="Ingresá tu clave">
+        
+        <br><br>
+        <input type="submit" value="Ingresar">
+        <input type="reset" value="Limpiar campos">
+    </form>
 
-            <label for="usuario">Usuario:</label><br>
-            <input type="text" id="usuario" required minlength="3"><br><br>
+    <form id="formularioRegistro" onsubmit="procesarRegistro(event)" style="display: none;">
+        <h2>Formulario de Registro Nuevo</h2>
+        <label for="usuarioReg">Elegí tu nombre de usuario:</label>
+        <input type="text" id="usuarioReg" required placeholder="Mínimo 4 caracteres">
+        
+        <label for="claveReg">Creá una contraseña segura:</label>
+        <input type="password" id="claveReg" required placeholder="Usá letras y números">
+        
+        <label for="emailReg">Correo electrónico:</label>
+        <input type="email" id="emailReg" required placeholder="ejemplo@correo.com">
+        
+        <br><br>
+        <input type="submit" value="Crear cuenta">
+        <input type="reset" value="Limpiar campos">
+    </form>
 
-            <label for="clave">Contraseña:</label><br>
-            <input type="password" id="clave" required minlength="4"><br><br>
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
 
-            <label for="correo">Correo:</label><br>
-            <input type="email" id="correo" required><br><br>
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
 
-            <label for="edad">Edad:</label><br>
-            <input type="number" id="edad" required><br><br>
+        function mostrarLogin() {
+            document.getElementById("formularioLogin").style.display = "block";
+            document.getElementById("formularioRegistro").style.display = "none";
+        }
 
-            <label>Tipo de usuario:</label><br>
-            <input type="radio" id="comprador" name="tipo" onclick="mostrarEmpresa()" required>
-            <label for="comprador">Comprador interesado en tendencias</label><br>
-            <input type="radio" id="tienda" name="tipo" onclick="mostrarEmpresa()">
-            <label for="tienda">Tienda o negocio de indumentaria urbana</label><br><br>
+        function mostrarRegistro() {
+            document.getElementById("formularioLogin").style.display = "none";
+            document.getElementById("formularioRegistro").style.display = "block";
+        }
 
-            <div id="datosEmpresa" style="display:none;">
-                <h2>Datos comerciales del negocio o showroom</h2>
-                <label>Nombre de empresa:</label><br>
-                <input type="text" id="empresa"><br><br>
+        function procesarLogin(e) {
+            e.preventDefault();
+            let u = document.getElementById("usuarioLog").value;
+            localStorage.setItem("usuarioModaHub", u);
+            alert("¡Bienvenido/a de nuevo a ModaHub, " + u + "!");
+            window.location.href = "index.html";
+        }
 
-                <label>Descripción comercial de tu marca:</label><br>
-                <textarea id="descripcion" rows="4" cols="40"></textarea><br><br>
-
-                <label>Logo de la marca corporativa:</label><br>
-                <input type="file" id="imagen">
-            </div>
-            <br>
-            <input type="checkbox" required> Acepto todos los términos de uso y condiciones de privacidad
-            <br><br>
-            <button type="submit">Crear cuenta</button>
-            <button type="reset">Borrar todo</button>
-        </form>
-    </div>
-
-    <div id="login" style="display:none;">
-        <h2>Iniciar sesión en tu cuenta activa</h2>
-        <form onsubmit="return iniciarSesion()">
-            <label>Usuario registrado:</label><br>
-            <input type="text" id="usuarioLogin" required><br><br>
-
-            <label>Contraseña secreta:</label><br>
-            <input type="password" id="claveLogin" required><br><br>
-
-            <button type="submit">Entrar a la plataforma</button>
-        </form>
-    </div>
-
-    <h3>Ventajas de registrar tu marca comercial con nosotros</h3>
-    <p>
-        Si sos dueño de un local o showroom de indumentaria urbana, crear un perfil comercial en nuestra plataforma aumentará de forma exponencial tu visibilidad digital ante un público objetivo altamente segmentado que busca exactamente tus productos. Podrás actualizar tus catálogos de prendas, publicar ofertas flash de zapatillas y figurar en el mapa geolocalizado de búsquedas frecuentes, impulsando tus ventas diarias de manera efectiva y económica.
-    </p>
-
-    <br><br>
-    <img src="imagenes/ropaurbana.png" width="300" alt="Formulario de inicio de sesión seguro ilustrado con indumentaria de moda de fondo">
-    <br><br>
-    <a href="index.html">Volver al inicio</a>
+        function procesarRegistro(e) {
+            e.preventDefault();
+            let u = document.getElementById("usuarioReg").value;
+            localStorage.setItem("usuarioModaHub", u);
+            alert("¡Cuenta creada con éxito! Ya iniciaste sesión como: " + u);
+            window.location.href = "index.html";
+        }
+    </script>
 
 </body>
 </html>
