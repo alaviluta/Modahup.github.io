@@ -10,21 +10,40 @@
 
 <body>
 
+    <header>
+        <h2>ModaHub</h2>
+        <p id="sesion"></p>
+        <div id="botonCerrar"></div>
+
+        <nav>
+            <a href="mapa.html">Mapa</a>
+            <a href="tiendas.html">Tiendas</a>
+            <a href="curso.html">Curso</a>
+            <a href="blog.html">Blog</a>
+            <a href="cv.html">CV</a>
+            <a href="preguntas.html">Preguntas</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="extras.html">Extras</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="iniciosecion.html">Inicio de sesión</a>
+        </nav>
+    </header>
+
     <h1>Curso Práctico de Estilismo y Combinación Streetwear</h1>
 
     <h2>Unidad 1: Introducción a la Cultura de la Moda Urbana</h2>
     <p>
-        Comprender el origen del streetwear es fundamental para aprender a vestirlo de forma armónica. En este bloque introductorio revisamos la historia de las subculturas urbanas, la importancia de las siluetas oversize y cómo equilibrar los volúmenes de las prendas superiores con los pantalones para lograr un aspecto moderno, relajado y lleno de personalidad propia.
+        Comprender el origen del streetwear es fundamental para aprender a vestirlo de forma armónica[cite: 4]. En este bloque introductorio revisamos la historia de las subculturas urbanas, la importancia de las siluetas oversize y cómo equilibrar los volúmenes de las prendas superiores con los pantalones para lograr un aspecto moderno, relajado y lleno de personalidad propia[cite: 4].
     </p>
 
     <h2>Unidad 2: Cómo Buscar Tiendas de Ropa Estratégicas</h2>
     <p>
-        No toda la moda de calidad se encuentra en los grandes centros comerciales. En esta sección te enseñamos a utilizar herramientas de mapas digitales y bases de datos colaborativas para descubrir showrooms ocultos, locales de diseñadores independientes y ferias vintage que ofrecen indumentaria exclusiva y accesorios únicos a precios sumamente competitivos y accesibles.
+        No toda la moda de calidad se encuentra en los grandes centros comerciales[cite: 4]. En esta sección te enseñamos a utilizar herramientas de mapas digitales y bases de datos colaborativas para descubrir showrooms ocultos, locales de diseñadores independientes y ferias vintage que ofrecen indumentaria exclusiva y accesorios únicos a precios sumamente competitivos y accesibles[cite: 4].
     </p>
 
     <h2>Unidad 3: Análisis de Catálogos de Indumentaria y Calzado</h2>
     <p>
-        Aprender a interpretar los catálogos oficiales y los materiales textiles te ahorrará tiempo y dinero. Analizaremos las diferencias entre tipos de estampados, la calidad de las costuras y cómo elegir el calzado adecuado según la temporada del año y las actividades que realices a diario, garantizando que tu inversión en ropa sea inteligente y duradera.
+        Aprender a interpretar los catálogos oficiales y los materiales textiles te ahorrará tiempo y dinero[cite: 4]. Analizaremos las diferencias entre tipos de estampados, la calidad de las costuras y cómo elegir el calzado adecuado según la temporada del año y las actividades que realices a diario, garantizando que tu inversión en ropa sea inteligente y duradera[cite: 4].
     </p>
 
     <img src="imagenes/outfit.png" width="300" alt="Ejemplo visual de outfit urbano completo combinando zapatillas, pantalón y campera moderna">
@@ -36,8 +55,18 @@
 
     <br><br>
     <a href="tiendas.html">Practicar viendo tiendas</a>
-    <br><br>
-    <a href="index.html">Volver al inicio</a>
+
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
 
 </body>
 </html>
