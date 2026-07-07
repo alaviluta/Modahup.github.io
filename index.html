@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaHub | Comunidad de Moda Urbana, Streetwear y Zapatillas</title>
-    <meta name="description" content="Bienvenido a ModaHub, el portal definitivo de streetwear. Descubrí catálogos de Nike, Adidas y Zara, localizá tiendas en el mapa y aprendé sobre indumentaria.">
     <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
 
     <header>
         <h2>ModaHub</h2>
-        <p id="sesion"></p>
-        <div id="botonCerrar"></div>
-
         <nav>
             <a href="mapa.html">Mapa</a>
             <a href="tiendas.html">Tiendas</a>
@@ -29,31 +24,26 @@
         </nav>
     </header>
 
-    <h1>Bienvenidos a ModaHub - El Portal de la Moda Urbana</h1>
+    <main style="padding: 20px; text-align: center;">
+        <h1>Bienvenidos a ModaHub - El Portal de la Moda Urbana</h1>
 
-    <img src="imagenes/ropaurbana.png" width="400" alt="Grupo de jóvenes vistiendo indumentaria moderna de estilo streetwear en la calle">
+        <div style="margin: 20px 0;">
+            <img src="imagenes/ropaurbana.png" alt="Grupo de jóvenes vistiendo indumentaria moderna de estilo streetwear en la calle" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
 
-    <h2>Tu espacio de referencia para el Streetwear y la Indumentaria</h2>
-    <p>
-        ModaHub es una plataforma digital creada específicamente para centralizar la información más relevante del universo de la indumentaria urbana y el calzado deportivo de colección. En este portal vas a poder explorar directorios de tiendas oficiales de marcas líderes mundiales, descubrir showrooms independientes a través de nuestro localizador geográfico y acceder a análisis profundos sobre las telas y tendencias que están redefiniendo el diseño callejero actual.
-    </p>
+        <h2>Tu espacio de referencia para el Streetwear y la Indumentaria</h2>
+        
+        <p style="max-width: 800px; margin: 0 auto 20px auto; text-align: justify; line-height: 1.6;">
+            ModaHub es una plataforma digital creada específicamente para centralizar la información más relevante del universo de la indumentaria urbana y el calzado deportivo de colección. En este portal vas a poder explorar directorios de tiendas oficiales de marcas líderes mundiales, descubrir showrooms independientes a través de nuestro localizador geográfico y acceder a análisis profundos sobre las telas y tendencias que están redefiniendo el diseño callejero actual.
+        </p>
 
-    <h3>Explorá todas las herramientas que tenemos disponibles</h3>
-    <p>
-        Navegá de forma libre utilizando nuestro menú superior para acceder a guías de combinación de indumentaria, consultar listados detallados de preguntas frecuentes sobre el mantenimiento de tus zapatillas o interactuar con el ranking colaborativo donde la comunidad califica la calidad textil de buzos, remeras y pantalones de temporada. Mantenete atento a nuestras secciones dinámicas de blog para no perderte ningún lanzamiento exclusivo de edición limitada en el mercado local.
-    </p>
-
-    <script>
-        let usuario = localStorage.getItem("usuarioModaHub");
-        if (usuario) {
-            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
-            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
-        }
-        function cerrarSesion() {
-            localStorage.removeItem("usuarioModaHub");
-            location.reload();
-        }
-    </script>
+        <h3>Explarás todas las herramientas que tenemos disponibles</h3>
+        
+        <p style="max-width: 800px; margin: 0 auto; text-align: justify; line-height: 1.6;">
+            Navegá de forma libre utilizando nuestro menú superior para acceder a guías de combinación de indumentaria, consultar listados detallados de preguntas frecuentes sobre el mantenimiento de tus zapatillas o interactuar con el ranking colaborativo donde la comunidad califica la calidad textil de buzos, remeras y pantalones de temporada. Mantenete atento a nuestras secciones dinámicas de blog para no perderte ningún lanzamiento exclusivo de edición limitada en el mercado local.
+        </p>
+    </main>
 
 </body>
 </html>
+
