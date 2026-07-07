@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>Tiendas | ModaHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaHub - Tiendas</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
 
     <header>
         <h2>ModaHub</h2>
-        <p id="sesion"></p>
-        <div id="botonCerrar"></div>
-
         <nav>
+            <a href="index.html">Inicio</a>
             <a href="mapa.html">Mapa</a>
-            <a href="tiendas.html">Tiendas</a>
+            <a href="tiendas.html" style="text-decoration: underline;">Tiendas</a>
             <a href="curso.html">Curso</a>
             <a href="blog.html">Blog</a>
             <a href="cv.html">CV</a>
@@ -28,39 +25,19 @@
         </nav>
     </header>
 
-    <h1>Tiendas Adheridas</h1>
-
-    <h2><a href="nike.html" style="margin-left:0; color:inherit; text-decoration:none;">➡️ Tienda Nike</a></h2>
-    <img src="imagenes/nike.png" width="250" alt="Nike">
-    <p>Ropa deportiva y calzado urbano de última generación.</p>
-    <a href="nike.html">Ver catálogo Nike</a>
-
-    <hr>
-
-    <h2><a href="adidas.html" style="margin-left:0; color:inherit; text-decoration:none;">➡️ Tienda Adidas</a></h2>
-    <img src="imagenes/adidas.png" width="250" alt="Adidas">
-    <p>Prendas clásicas con las tres tiras legendarias.</p>
-    <a href="adidas.html">Ver catálogo Adidas</a>
-
-    <hr>
-
-    <h2><a href="zara.html" style="margin-left:0; color:inherit; text-decoration:none;">➡️ Tienda Zara</a></h2>
-    <img src="imagenes/zara.png" width="250" alt="Zara">
-    <p>Moda casual, elegante y tendencias internacionales.</p>
-    <a href="zara.html">Ver catálogo Zara</a>
-
-    <script>
-        let usuario = localStorage.getItem("usuarioModaHub");
-        if (usuario) {
-            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
-            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
-        }
-        function cerrarSesion() {
-            localStorage.removeItem("usuarioModaHub");
-            location.reload();
-        }
-    </script>
+    <main style="padding: 20px;">
+        <h1 style="text-align: center;">Directorio de Tiendas y Showrooms</h1>
+        
+        <div style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+            <h3>Dionysos (Ejemplo)</h3>
+            <p style="line-height: 1.6; text-align: justify;">
+                Una de las tiendas de energía y lanzamientos exclusivos de zapatillas y streetwear más importantes del país, con los últimos drops de marcas seleccionadas.
+            </p>
+            <div style="margin-top: 15px;">
+                <a href="https://www.digitalport.com.ar/" target="_blank" style="display: inline-block; padding: 10px 15px; background-color: #333; color: white; text-decoration: none; border-radius: 5px;">Visitar Tienda</a>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>
-
