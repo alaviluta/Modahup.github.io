@@ -10,25 +10,44 @@
 
 <body>
 
+    <header>
+        <h2>ModaHub</h2>
+        <p id="sesion"></p>
+        <div id="botonCerrar"></div>
+
+        <nav>
+            <a href="mapa.html">Mapa</a>
+            <a href="tiendas.html">Tiendas</a>
+            <a href="curso.html">Curso</a>
+            <a href="blog.html">Blog</a>
+            <a href="cv.html">CV</a>
+            <a href="preguntas.html">Preguntas</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="extras.html">Extras</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="iniciosecion.html">Inicio de sesión</a>
+        </nav>
+    </header>
+
     <h1>Contenido Extra: Liquidaciones, Colores y Marcas Clave</h1>
 
     <h2>Ofertas de Temporada y Liquidaciones Exclusivas</h2>
     <p>
-        Encontrar productos de alta gama a precios accesibles es totalmente posible si sabés dónde buscar. En esta sección recopilamos de forma diaria los mejores descuentos vigentes en zapatillas deportivas y prendas urbanas de los distribuidores más confiables del mercado. Estas rebajas especiales te permitirán renovar tu calzado o adquirir esa campera impermeable que tanto querías cuidando tu economía personal de manera inteligente.
+        Encontrar productos de alta gama a precios accesibles es totalmente posible si sabés dónde buscar[cite: 7]. En esta sección recopilamos de forma diaria los mejores descuentos vigentes en zapatillas deportivas y prendas urbanas de los distribuidores más confiables del mercado[cite: 7]. Estas rebajas especiales te permitirán renovar tu calzado o adquirir esa campera impermeable que tanto querías cuidando tu economía personal de manera inteligente.
     </p>
 
     <img src="imagenes/oferta.png" width="300" alt="Cartel publicitario de ofertas y descuentos especiales en calzado urbano">
 
     <h2>Tendencias Actuales en Estilismo Callejero</h2>
     <p>
-        La moda urbana se renueva velozmente y este mes los tonos tierra, los verdes militares y los detalles en colores neón están dominando las principales pasarelas internacionales de streetwear. Te mostramos cuáles son las combinaciones cromáticas más usadas del momento por los referentes de la cultura urbana para que puedas implementarlas fácilmente en tu día a día, manteniendo tus outfits totalmente actualizados, modernos y llamativos.
+        La moda urbana se renueva velozmente y este mes los tonos tierra, los verdes militares y los detalles en colores neón están dominando las principales pasarelas internacionales de streetwear[cite: 7]. Te mostramos cuáles son las combinaciones cromáticas más usadas del momento por los referentes de la cultura urbana para que puedas implementarlas fácilmente en tu día a día, manteniendo tus outfits totalmente actualizados, modernos y llamativos[cite: 7].
     </p>
 
     <img src="imagenes/tendencia.png" width="300" alt="Muestra de paleta de colores y tendencias de ropa urbana del momento">
 
     <h2>Marcas Líderes Recomendadas por la Comunidad</h2>
     <p>
-        El universo del streetwear está liderado por firmas icónicas internacionales que garantizan la máxima calidad y durabilidad en cada uno de sus productos textiles. A continuación, listamos las marcas preferidas y mejor valoradas por nuestra comunidad de usuarios, ideales para quienes buscan armar un guardarropa versátil, cómodo y con una fuerte impronta de identidad urbana:
+        El universo del streetwear está liderado por firmas icónicas internacionales que garantizan la máxima calidad y durabilidad en cada uno de sus productos textiles[cite: 7]. A continuación, listamos las marcas preferidas y mejor valoradas por nuestra comunidad de usuarios, ideales para quienes buscan armar un guardarropa versátil, cómodo y con una fuerte impronta de identidad urbana[cite: 7]:
     </p>
     <p>Nike</p>
     <p>Adidas</p>
@@ -46,8 +65,18 @@
     <a href="ranking.html">Ver ranking de marcas</a>
     <br><br>
     <a href="https://www.puma.com" target="_blank">Ir a Puma</a>
-    <br><br>
-    <a href="index.html">Volver al inicio</a>
+
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
 
 </body>
 </html>
