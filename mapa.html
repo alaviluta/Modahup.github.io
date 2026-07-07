@@ -10,11 +10,30 @@
 
 <body>
 
+    <header>
+        <h2>ModaHub</h2>
+        <p id="sesion"></p>
+        <div id="botonCerrar"></div>
+
+        <nav>
+            <a href="mapa.html">Mapa</a>
+            <a href="tiendas.html">Tiendas</a>
+            <a href="curso.html">Curso</a>
+            <a href="blog.html">Blog</a>
+            <a href="cv.html">CV</a>
+            <a href="preguntas.html">Preguntas</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="extras.html">Extras</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="iniciosecion.html">Inicio de sesión</a>
+        </nav>
+    </header>
+
     <h1>Mapa de Tiendas de Ropa Streetwear</h1>
 
     <h2>Localizá showrooms de ropa urbana e indumentaria alternativa</h2>
     <p>
-        ModaHub te ofrece una herramienta interactiva de mapa digital diseñada específicamente para optimizar la búsqueda de tus tiendas de indumentaria urbana favoritas en tiempo real. Sabemos perfectamente que las mejores propuestas de diseño independiente y prendas exclusivas suelen estar en showrooms ocultos o galerías comerciales alejadas del circuito masivo tradicional. Con nuestro sistema interactivo vas a poder filtrar locales según categorías precisas de ropa o marcas deseadas.
+        ModaHub te ofrece una herramienta interactiva de mapa digital diseñada específicamente para optimizar la búsqueda de tus tiendas de indumentaria urbana favoritas en tiempo real[cite: 10]. Sabemos perfectamente que las mejores propuestas de diseño independiente y prendas exclusivas suelen estar en showrooms ocultos o galerías comerciales alejadas del circuito masivo tradicional. Con nuestro sistema interactivo vas a poder filtrar los resultados por categorías precisas de ropa o marcas deseadas.
     </p>
 
     <img src="imagenes/mapa.png" width="450" alt="Mapa de calles de la ciudad marcando la geolocalización de las principales tiendas de ropa urbana">
@@ -33,8 +52,18 @@
     <a href="tiendas.html">Ir a tiendas</a>
     <br><br>
     <a href="extras.html">Ver tendencias</a>
-    <br><br>
-    <a href="index.html">Volver al inicio</a>
+
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
 
 </body>
 </html>
