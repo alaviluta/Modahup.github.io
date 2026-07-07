@@ -10,12 +10,31 @@
 
 <body>
 
+    <header>
+        <h2>ModaHub</h2>
+        <p id="sesion"></p>
+        <div id="botonCerrar"></div>
+
+        <nav>
+            <a href="mapa.html">Mapa</a>
+            <a href="tiendas.html">Tiendas</a>
+            <a href="curso.html">Curso</a>
+            <a href="blog.html">Blog</a>
+            <a href="cv.html">CV</a>
+            <a href="preguntas.html">Preguntas</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="extras.html">Extras</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="iniciosecion.html">Inicio de sesión</a>
+        </nav>
+    </header>
+
     <h1>Directorio Oficial de Locales de Indumentaria</h1>
 
     <h2>Tienda Oficial Nike - Ropa Deportiva y Streetwear</h2>
     <img src="imagenes/nike.png" width="250" alt="Logotipo oficial de la marca de ropa y calzado deportivo Nike">
     <p>
-        La firma internacional Nike destaca mundialmente por ofrecer una amplia gama de ropa deportiva y calzado urbano de alto rendimiento adaptado a la vida cotidiana en las grandes urbes[cite: 14]. Sus diseños vanguardistas incorporan de forma constante materiales tecnológicos duraderos y estéticas modernas que la convierten en la opción predilecta de atletas profesionales y referentes del estilismo callejero internacional que buscan prendas cómodas y funcionales.
+        La firma internacional Nike destaca mundialmente por ofrecer una amplia gama de ropa deportiva y calzado urbano de alto rendimiento adaptado a la vida cotidiana en las grandes urbes[cite: 14]. Sus diseños vanguardistas incorporan de forma constante materiales tecnológicos duraderos y estéticas modernas que la convierten en la opción predilecta de atletas profesionales y referentes del estilismo callejero internacional que buscan prendas cómodas y funcionales[cite: 14].
     </p>
     <a href="nike.html">Ver catálogo Nike</a>
     <br><br>
@@ -26,7 +45,7 @@
     <h2>Tienda Oficial Adidas - Calzado y Prendas Clásicas</h2>
     <img src="imagenes/adidas.png" width="250" alt="Logotipo de Adidas Originals utilizado en indumentaria urbana">
     <p>
-        Adidas es un sinónimo indiscutido de tradición, durabilidad y elegancia dentro del universo de la indumentaria deportiva y urbana global[cite: 14]. Con sus históricas líneas de ropa que lucen las inconfundibles tres tiras, la marca ha sabido fusionar a la perfección la comodidad de la vestimenta de entrenamiento con las demandas estéticas de las subculturas urbanas más influyentes del planeta, ofreciendo productos de alta resistencia textil para todas las edades.
+        Adidas es un sinónimo indiscutido de tradición, durabilidad y elegancia dentro del universo de la indumentaria deportiva y urbana global[cite: 14]. Con sus históricas líneas de ropa que lucen las inconfundibles tres tiras, la marca ha sabido fusionar a la perfección la comodidad de la vestimenta de entrenamiento con las demandas estéticas de las subculturas urbanas más influyentes del planeta, ofreciendo productos de alta resistencia textil para todas las edades[cite: 14].
     </p>
     <a href="adidas.html">Ver catálogo Adidas</a>
     <br><br>
@@ -37,7 +56,7 @@
     <h2>Tienda Oficial Zara - Moda Casual y Tendencias Sofisticadas</h2>
     <img src="imagenes/zara.png" width="250" alt="Logotipo elegante y tipográfico de la marca de ropa Zara">
     <p>
-        Para quienes buscan un estilo más refinado pero totalmente adaptable al uso diario en entornos urbanos, Zara ofrece colecciones completas de ropa casual con un enfoque moderno y sofisticado[cite: 14]. Sus prendas destacan por seguir ágilmente los dictados de las pasarelas globales de moda, brindando camisas de excelente confección, pantalones de cortes precisos y camperas versátiles ideales para armar conjuntos formales o informales según la ocasión.
+        Para quienes buscan un estilo más refinado pero totalmente adaptable al uso diario en entornos urbanos, Zara ofrece colecciones completas de ropa casual con un enfoque moderno y sofisticado[cite: 14]. Sus prendas destacan por seguir ágilmente los dictados de las pasarelas globales de moda, brindando camisas de excelente confección, pantalones de cortes precisos y camperas versátiles ideales para armar conjuntos formales o informales según la ocasión[cite: 14].
     </p>
     <a href="zara.html">Ver catálogo Zara</a>
     <br><br>
@@ -49,8 +68,17 @@
         Tener acceso centralizado a estas marcas líderes te permite comparar estilos, analizar precios y seleccionar las prendas que mejor reflejen tu personalidad sin necesidad de navegar por múltiples sitios webs dispersos. Recordá que podés utilizar nuestra herramienta de localización geográfica para descubrir cuáles de estos comercios cuentan con sucursales físicas habilitadas o showrooms oficiales con promociones exclusivas vigentes cerca de tu ubicación actual.
     </p>
 
-    <br><br>
-    <a href="index.html">Volver al inicio</a>
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
 
 </body>
 </html>
