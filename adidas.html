@@ -4,11 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Catálogo Adidas Urbano | Zapatillas y Buzos de Tres Tiras</title>
-    <meta name="description" content="Explora el catálogo completo de Adidas en ModaHub. Descubre los buzos más abrigados y las zapatillas clásicas y modernas que definen el estilo urbano actual.">
+    <meta name="description" content="Explora el catálogo completo de Adidas en ModaHub. Descubre los buzos más abrigados and las zapatillas clásicas y modernas que definen el estilo urbano actual.">
     <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
+
+    <header>
+        <h2>ModaHub</h2>
+        <p id="sesion"></p>
+        <div id="botonCerrar"></div>
+
+        <nav>
+            <a href="mapa.html">Mapa</a>
+            <a href="tiendas.html">Tiendas</a>
+            <a href="curso.html">Curso</a>
+            <a href="blog.html">Blog</a>
+            <a href="cv.html">CV</a>
+            <a href="preguntas.html">Preguntas</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="extras.html">Extras</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="iniciosecion.html">Inicio de sesión</a>
+        </nav>
+    </header>
 
     <h1>Catálogo de Ropa Deportiva y Urbana Adidas</h1>
 
@@ -16,14 +35,14 @@
 
     <h2>Buzos Adidas de Colección</h2>
     <p>
-        Los buzos de Adidas representan un pilar fundamental dentro de la cultura del streetwear global. Confeccionados con algodones de primera calidad y sistemas de aislamiento térmico eficientes, estas prendas combinan a la perfección la comodidad deportiva con la estética callejera que buscás. Ya sea el clásico diseño con las tres tiras a los costados o las ediciones especiales con el logo del trébol, cada buzo está pensado para durar y ofrecer un calce cómodo en cualquier ocasión cotidiana.
+        Los buzos de Adidas representan un pilar fundamental dentro de la cultura del streetwear global[cite: 1]. Confeccionados con algodones de primera calidad y sistemas de aislamiento térmico eficientes, estas prendas combinan a la perfección la comodidad deportiva con la estética callejera que buscás[cite: 1]. Ya sea el clásico diseño con las tres tiras a los costados o las ediciones especiales con el logo del trébol, cada buzo está pensado para durar y ofrecer un calce cómodo en cualquier ocasión cotidiana[cite: 1].
     </p>
 
     <img src="imagenes/buzo.png" width="250" alt="Buzo Adidas urbano de algodón con capucha y diseño clásico de tres tiras">
 
     <h2>Zapatillas Adidas Originales</h2>
     <p>
-        El calzado es el alma de cualquier outfit urbano, y las zapatillas Adidas nunca fallan. Desde los históricos modelos de calzado retro que marcaron los años 80 y 90 hasta las siluetas más futuristas equipadas con tecnología de amortiguación moderna, nuestra selección abarca opciones para todos los gustos estéticos. Son zapatillas ideales para caminar largas distancias por la ciudad, ir a entrenar o combinar con un estilo casual formal, garantizando pisadas firmes, seguras y con mucho estilo propio.
+        El calzado es el alma de cualquier outfit urbano, y las zapatillas Adidas nunca fallan[cite: 1]. Desde los históricos modelos de calzado retro que marcaron los años 80 y 90 hasta las siluetas más futuristas equipadas con tecnología de amortiguación moderna, nuestra selección abarca opciones para todos los gustos estéticos[cite: 1]. Son zapatillas ideales para caminar largas distancias por la ciudad, ir a entrenar o combinar con un estilo casual formal, garantizando pisadas firmes, seguras y con mucho estilo propio[cite: 1].
     </p>
 
     <img src="imagenes/zapatillas.png" width="250" alt="Zapatillas Adidas urbanas de última generación con suela cómoda">
@@ -37,8 +56,18 @@
     <a href="blog.html">Ver noticia de Adidas</a>
     <br><br>
     <a href="https://www.adidas.com" target="_blank">Página oficial Adidas</a>
-    <br><br>
-    <a href="tiendas.html">Volver</a>
+
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
 
 </body>
 </html>
