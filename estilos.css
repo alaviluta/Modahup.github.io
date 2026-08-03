@@ -1,90 +1,224 @@
-body {
+/* Reset y bases */
+* {
     margin: 0;
     padding: 0;
-    padding-top: 80px; /* Evita que la barra negra tape el contenido */
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #333333;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f7;
+    color: #222222;
+    padding-top: 110px; /* Evita que el header tape el contenido */
+}
+
+/* Header */
 header {
-    background-color: #111111; /* Color negro urbano */
-    color: #ffffff;
-    padding: 15px 20px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    box-sizing: border-box;
+    background-color: #111111;
+    color: #ffffff;
     z-index: 1000;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.nav-menu a:hover {
+    color: #ff4500;
+}
+
+/* Layout General */
+.main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.encabezado-pagina {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 260px;
+}
+
+.hero-image img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Bloques y Grillas */
+.seccion-bloque {
+    margin-bottom: 35px;
+}
+
+.seccion-bloque h3, .ranking-wrapper h3 {
+    margin-bottom: 15px;
+}
+
+.grid-tres-columnas {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card-item, .card-marca {
+    flex: 1;
+    min-width: 220px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card-item img, .card-marca img {
+    max-width: 150px;
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+}
+
+.grid-dos-columnas {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card-doble {
+    flex: 1;
+    min-width: 280px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.card-doble img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Preguntas Frecuentes */
+.faq-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border-bottom: 2px solid #333333;
+    gap: 15px;
+    margin-bottom: 35px;
 }
 
-header h2 {
-    margin: 0;
-    font-size: 24px;
-    letter-spacing: 1px;
-}
-
-#sesion {
-    margin: 0;
-    font-size: 14px;
-    color: #cccccc;
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 14px;
-    transition: color 0.2s;
-}
-
-nav a:hover {
-    color: #00bcd4; /* Color celeste al pasar el mouse */
-}
-
-/* Estilos generales para el contenido */
-h1, h2, h3, p {
-    padding: 0 20px;
-}
-
-img {
-    margin: 15px 20px;
+.pregunta-box {
+    background: #ffffff;
+    padding: 20px;
     border-radius: 8px;
-    display: block;
+    border-left: 4px solid #111111;
 }
 
-a {
-    color: #007bff;
-    margin-left: 20px;
+.banner-infobox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-hr {
-    margin: 30px 20px;
-    border: 0;
-    border-top: 1px solid #eeeeee;
+.info-img img {
+    max-width: 140px;
+    height: auto;
 }
 
-button {
-    margin-left: 20px;
-    padding: 8px 15px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* Ranking */
+.ranking-wrapper {
+    margin-bottom: 35px;
 }
 
-button:hover {
-    background-color: #555;
+.lista-ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-ranking {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.puesto-numero {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff4500;
+}
+
+.item-img img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Footer */
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.mapa-box img {
+    max-width: 280px;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 10px;
 }
