@@ -3,46 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModaHub | Comunidad de Moda Urbana, Streetwear y Zapatillas</title>
+    <title>ModaHub - Inicio</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
+    <!-- Header Fijo -->
     <header>
-        <h2>ModaHub</h2>
-        <nav>
-            <a href="mapa.html">Mapa</a>
-            <a href="tiendas.html">Tiendas</a>
-            <a href="curso.html">Curso</a>
-            <a href="blog.html">Blog</a>
-            <a href="cv.html">CV</a>
-            <a href="preguntas.html">Preguntas</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="extras.html">Extras</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="iniciosecion.html">Inicio de sesión</a>
-        </nav>
+        <div class="header-container">
+            <div class="logo-box">
+                <h1>ModaHub</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="preguntas.html">Preguntas</a>
+                <a href="ranking.html">Ranking</a>
+            </nav>
+        </div>
     </header>
 
-    <main style="padding: 20px; text-align: center;">
-        <h1>Bienvenidos a ModaHub - El Portal de la Moda Urbana</h1>
+    <!-- Contenido Principal -->
+    <main class="main-content">
 
-        <div style="margin: 20px 0;">
-            <img src="imagenes/ropaurbana.png" alt="Grupo de jóvenes vistiendo indumentaria moderna de estilo streetwear en la calle" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <!-- Banner Principal -->
+        <div class="hero-section">
+            <div class="hero-text">
+                <h2>Guía de Streetwear y Tiendas Urbanas</h2>
+                <p>Encontrá las mejores marcas, ubicaciones y tendencias del estilo urbano.</p>
+            </div>
+            <div class="hero-image">
+                <img src="./imagenes/ropaurbana.png" alt="Ropa Urbana ModaHub">
+            </div>
         </div>
 
-        <h2>Tu espacio de referencia para el Streetwear y la Indumentaria</h2>
-        
-        <p style="max-width: 800px; margin: 0 auto 20px auto; text-align: justify; line-height: 1.6;">
-            ModaHub es una plataforma digital creada específicamente para centralizar la información más relevante del universo de la indumentaria urbana y el calzado deportivo de colección. En este portal vas a poder explorar directorios de tiendas oficiales de marcas líderes mundiales, descubrir showrooms independientes a través de nuestro localizador geográfico y acceder a análisis profundos sobre las telas y tendencias que están redefiniendo el diseño callejero actual.
-        </p>
+        <!-- Sección de Categorías y Outfits -->
+        <div class="seccion-bloque">
+            <h3>Categorías de Indumentaria</h3>
+            <div class="grid-tres-columnas">
+                <div class="card-item">
+                    <img src="./imagenes/zapatillas.png" alt="Zapatillas">
+                    <div class="card-info">
+                        <h4>Zapatillas</h4>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="./imagenes/buzo.png" alt="Buzos">
+                    <div class="card-info">
+                        <h4>Buzos & Hoodies</h4>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="./imagenes/remera.png" alt="Remeras">
+                    <div class="card-info">
+                        <h4>Remeras Oversize</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <h3>Explarás todas las herramientas que tenemos disponibles</h3>
-        
-        <p style="max-width: 800px; margin: 0 auto; text-align: justify; line-height: 1.6;">
-            Navegá de forma libre utilizando nuestro menú superior para acceder a guías de combinación de indumentaria, consultar listados detallados de preguntas frecuentes sobre el mantenimiento de tus zapatillas o interactuar con el ranking colaborativo donde la comunidad califica la calidad textil de buzos, remeras y pantalones de temporada. Mantenete atento a nuestras secciones dinámicas de blog para no perderte ningún lanzamiento exclusivo de edición limitada en el mercado local.
-        </p>
+        <!-- Marcas Destacadas -->
+        <div class="seccion-bloque">
+            <h3>Marcas Líderes</h3>
+            <div class="grid-tres-columnas">
+                <div class="card-marca">
+                    <img src="./imagenes/nike.png" alt="Nike">
+                </div>
+                <div class="card-marca">
+                    <img src="./imagenes/adidas.png" alt="Adidas">
+                </div>
+                <div class="card-marca">
+                    <img src="./imagenes/zara.png" alt="Zara">
+                </div>
+            </div>
+        </div>
+
+        <!-- Novedades y Ofertas -->
+        <div class="seccion-bloque">
+            <div class="grid-dos-columnas">
+                <div class="card-doble">
+                    <img src="./imagenes/tendencia.png" alt="Tendencia del mes">
+                    <div class="texto-box">
+                        <h4>Tendencias del Mes</h4>
+                        <p>Descubrí los looks más votados por la comunidad.</p>
+                    </div>
+                </div>
+                <div class="card-doble">
+                    <img src="./imagenes/oferta.png" alt="Ofertas">
+                    <div class="texto-box">
+                        <h4>Ofertas Especiales</h4>
+                        <p>Promociones exclusivas en showrooms y tiendas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="mapa-box">
+                <h4>Mapa de Tiendas y Showrooms</h4>
+                <img src="./imagenes/mapa.png" alt="Mapa de Ubicaciones ModaHub">
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 ModaHub - Comunidad de Moda Urbana</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
