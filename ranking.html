@@ -1,77 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>Ranking de Tiendas de Ropa | Las Marcas Más Populares</title>
-    <meta name="description" content="Descubrí cuáles son las tiendas de ropa urbana más populares, los productos más buscados y las marcas mejor valoradas por los usuarios de ModaHub.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaHub - Ranking</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
 
+    <!-- Header Fijo -->
     <header>
-        <h2>ModaHub</h2>
-        <p id="sesion"></p>
-        <div id="botonCerrar"></div>
-
-        <nav>
-            <a href="mapa.html">Mapa</a>
-            <a href="tiendas.html">Tiendas</a>
-            <a href="curso.html">Curso</a>
-            <a href="blog.html">Blog</a>
-            <a href="cv.html">CV</a>
-            <a href="preguntas.html">Preguntas</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="extras.html">Extras</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="iniciosecion.html">Inicio de sesión</a>
-        </nav>
+        <div class="header-container">
+            <div class="logo-box">
+                <h1>ModaHub</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="preguntas.html">Preguntas</a>
+                <a href="ranking.html">Ranking</a>
+            </nav>
+        </div>
     </header>
 
-    <h1>Ranking Oficial de Marcas e Indumentaria Streetwear</h1>
+    <!-- Contenido Principal -->
+    <main class="main-content">
 
-    <h2>Tiendas de Ropa Más Populares de la Temporada</h2>
-    <p>
-        Nuestra comunidad evalúa de manera constante los locales comerciales según criterios estrictos de variedad en indumentaria, atención al cliente y disponibilidad de talles[cite: 13]. Basándonos en el volumen de visitas mensuales y las recomendaciones directas de los usuarios dentro de la plataforma, presentamos la lista oficial de los establecimientos comerciales más destacados del circuito de moda urbana actual[cite: 13]:
-    </p>
-    <p>1. Nike - Líder absoluto en innovación urbana[cite: 13].</p>
-    <p>2. Adidas - Preferida por sus diseños clásicos y retro[cite: 13].</p>
-    <p>3. Zara - Destacada por sus prendas casuales modernas[cite: 13].</p>
+        <div class="encabezado-pagina">
+            <h2>Ranking de la Comunidad</h2>
+            <p>Las marcas y prendas más votadas según la calidad textil y popularidad.</p>
+        </div>
 
-    <h2>Categorías de Productos Más Buscadas por los Usuarios</h2>
-    <p>
-        <strong>Zapatillas deportivas y de colección:</strong> El calzado se mantiene firmemente como el artículo más consultado y deseado dentro de nuestro portal web[cite: 13]. Los entusiastas del streetwear buscan constantemente siluetas cómodas y duraderas que se adapten con facilidad a diferentes tipos de outfits cotidianos, priorizando marcas que ofrezcan una excelente relación entre calidad textil, resistencia al desgaste diario y diseño vanguardista[cite: 13].
-    </p>
+        <!-- Ranking de Marcas -->
+        <div class="ranking-wrapper">
+            <h3>Top Marcas</h3>
+            <div class="lista-ranking">
+                
+                <div class="item-ranking">
+                    <div class="puesto-numero">#1</div>
+                    <div class="item-img">
+                        <img src="./imagenes/nike.png" alt="Nike">
+                    </div>
+                    <div class="item-detalle">
+                        <h4>Nike</h4>
+                        <p>Líder en zapatillas e indumentaria urbana.</p>
+                    </div>
+                </div>
 
-    <img src="imagenes/zapatillas.png" width="300" alt="Zapatillas urbanas de alta calidad ordenadas en un estante de exhibición">
+                <div class="item-ranking">
+                    <div class="puesto-numero">#2</div>
+                    <div class="item-img">
+                        <img src="./imagenes/adidas.png" alt="Adidas">
+                    </div>
+                    <div class="item-detalle">
+                        <h4>Adidas</h4>
+                        <p>Popular por sus modelos clásicos y colecciones de temporada.</p>
+                    </div>
+                </div>
 
-    <h2>Marcas de Indumentaria Mejor Valoradas</h2>
-    <p>
-        Las calificaciones con estrellas reflejan de forma directa la satisfacción real de los compradores tras adquirir sus prendas de vestir[cite: 13]. Estas puntuaciones contemplan la fidelidad de los materiales respecto a lo anunciado en los catálogos en línea, la comodidad del calce y el proceso de compra general[cite: 13]:
-    </p>
-    <p>Nike ⭐⭐⭐⭐⭐ - Máxima puntuación por su excelencia operativa y diseños disruptivos[cite: 13].</p>
-    <p>Adidas ⭐⭐⭐⭐ - Altamente valorada por su durabilidad histórica y comodidad[cite: 13].</p>
+                <div class="item-ranking">
+                    <div class="puesto-numero">#3</div>
+                    <div class="item-img">
+                        <img src="./imagenes/zara.png" alt="Zara">
+                    </div>
+                    <div class="item-detalle">
+                        <h4>Zara</h4>
+                        <p>Destacada por sus tendencias rápidas y cortes modernos.</p>
+                    </div>
+                </div>
 
-    <h3>¿Cómo influyen tus valoraciones en la plataforma?</h3>
-    <p>
-        El sistema de puntuación es completamente transparente y colaborativo. Al dejar tu opinión honesta sobre una campera, buzo o zapatilla comprada, ayudás directamente a otros miembros de la comunidad a realizar elecciones inteligentes y seguras. Además, este mecanismo incentiva a los showrooms locales a mantener estándares elevados de calidad en sus productos textiles y canales de atención, beneficiando a todo el ecosistema comercial.
-    </p>
+            </div>
+        </div>
 
-    <br><br>
-    <a href="tiendas.html">Ver tiendas populares</a>
+        <!-- Ranking de Categorías -->
+        <div class="ranking-wrapper">
+            <h3>Prendas Más Buscadas</h3>
+            <div class="lista-ranking">
+                
+                <div class="item-ranking">
+                    <div class="puesto-numero">#1</div>
+                    <div class="item-img">
+                        <img src="./imagenes/zapatillas.png" alt="Zapatillas">
+                    </div>
+                    <div class="item-detalle">
+                        <h4>Zapatillas Urbanas</h4>
+                    </div>
+                </div>
 
-    <script>
-        let usuario = localStorage.getItem("usuarioModaHub");
-        if (usuario) {
-            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
-            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
-        }
-        function cerrarSesion() {
-            localStorage.removeItem("usuarioModaHub");
-            location.reload();
-        }
-    </script>
+                <div class="item-ranking">
+                    <div class="puesto-numero">#2</div>
+                    <div class="item-img">
+                        <img src="./imagenes/buzo.png" alt="Buzo Hoodie">
+                    </div>
+                    <div class="item-detalle">
+                        <h4>Buzos Oversize</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="mapa-box">
+                <h4>Mapa de Tiendas y Showrooms</h4>
+                <img src="./imagenes/mapa.png" alt="Mapa de Ubicaciones ModaHub">
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 ModaHub - Comunidad de Moda Urbana</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
