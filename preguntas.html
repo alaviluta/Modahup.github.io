@@ -1,66 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>Preguntas Frecuentes | Centro de Ayuda de ModaHub</title>
-    <meta name="description" content="Resolvé tus dudas sobre ModaHub. Aprendé cómo buscar tiendas locales, explorar catálogos de indumentaria y conocer la ropa urbana de moda.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaHub - Preguntas Frecuentes</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
 
+    <!-- Header Fijo -->
     <header>
-        <h2>ModaHub</h2>
-        <p id="sesion"></p>
-        <div id="botonCerrar"></div>
-
-        <nav>
-            <a href="mapa.html">Mapa</a>
-            <a href="tiendas.html">Tiendas</a>
-            <a href="curso.html">Curso</a>
-            <a href="blog.html">Blog</a>
-            <a href="cv.html">CV</a>
-            <a href="preguntas.html">Preguntas</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="extras.html">Extras</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="iniciosecion.html">Inicio de sesión</a>
-        </nav>
+        <div class="header-container">
+            <div class="logo-box">
+                <h1>ModaHub</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="preguntas.html">Preguntas</a>
+                <a href="ranking.html">Ranking</a>
+            </nav>
+        </div>
     </header>
 
-    <h1>Preguntas Frecuentes y Guía de Uso</h1>
+    <!-- Contenido Principal -->
+    <main class="main-content">
 
-    <h2>¿Cómo uso la plataforma para encontrar indumentaria?</h2>
-    <p><strong>Buscando tiendas de forma interactiva:</strong> Utilizar nuestra plataforma es sumamente sencillo e intuitivo para cualquier usuario[cite: 12]. Podés navegar de manera directa mediante nuestro mapa geolocalizado o ingresar a la sección de locales comerciales adheridos para explorar las opciones disponibles en tu zona[cite: 12]. El sistema te permite filtrar los resultados por marcas de ropa específicas, cercanía geográfica y horarios de atención al cliente, ayudándote a planificar tus recorridos de compra de manera eficiente para ahorrar tiempo valioso.</p>
+        <div class="encabezado-pagina">
+            <h2>Preguntas Frecuentes</h2>
+            <p>Resolvemos las dudas habituales sobre la plataforma y las tiendas.</p>
+        </div>
 
-    <h2>¿Puedo ver catálogos actualizados de ropa y calzado?</h2>
-    <p><strong>Sí, totalmente:</strong> Cada uno de los locales comerciales y showrooms que forman parte de la comunidad de nuestra página cuenta con su propia sección de catálogo dedicada[cite: 12]. Allí vas a poder visualizar fotos detalladas de las prendas de última temporada, conocer la variedad de talles disponibles, consultar tablas de medidas precisas y revisar los precios vigentes antes de tomar una decisión de compra o visitar físicamente el establecimiento comercial[cite: 12].</p>
+        <!-- Contenedor de preguntas agrupadas -->
+        <div class="faq-wrapper">
+            
+            <div class="pregunta-box">
+                <div class="pregunta-titulo">
+                    <h3>¿Cómo funciona el ranking de marcas?</h3>
+                </div>
+                <div class="pregunta-contenido">
+                    <p>Los usuarios califican la calidad textil, atención y popularidad de las tiendas para armar la lista de las marcas mejor posicionadas.</p>
+                </div>
+            </div>
 
-    <h2>¿Qué tipo de ropa y marcas hay disponibles en el sitio?</h2>
-    <p><strong>Deportiva y urbana de última tendencia:</strong> Nos enfocamos de manera exclusiva en indumentaria que combina confort, diseño moderno y durabilidad para el uso diario[cite: 12]. Nuestra base de datos incluye desde colecciones de las firmas internacionales más deseadas como Nike, Adidas y Puma, hasta propuestas innovadoras de diseñadores locales independientes de streetwear, abarcando buzos, remeras, pantalones casuales y zapatillas de colección[cite: 11, 12].</p>
+            <div class="pregunta-box">
+                <div class="pregunta-titulo">
+                    <h3>¿Cómo ubico los showrooms en el mapa?</h3>
+                </div>
+                <div class="pregunta-contenido">
+                    <p>En el mapa del pie de página podés ver la localización geográfica de los locales y tiendas independientes adscriptas a ModaHub.</p>
+                </div>
+            </div>
 
-    <img src="imagenes/ropaurbana.png" width="300" alt="Variedad de ropa urbana y deportiva colgada en percheros de una tienda moderna">
+            <div class="pregunta-box">
+                <div class="pregunta-titulo">
+                    <h3>¿Puedo sugerir una marca o tienda independiente?</h3>
+                </div>
+                <div class="pregunta-contenido">
+                    <p>Sí, la comunidad puede aportar nuevos showrooms para sumar al directorio local.</p>
+                </div>
+            </div>
 
-    <h3>¿Cómo puedo registrar mi propio local comercial?</h3>
-    <p>
-        Si sos dueño de un showroom o marca de indumentaria independiente, el proceso para figurar en nuestros listados es sumamente rápido. Solo tenés que dirigirte a la sección de registro, crear un perfil de tipo comercial e ingresar los datos básicos de tu negocio junto con el enlace a tus redes sociales. Una vez validada la información por nuestro equipo técnico, empezarás a recibir visitas de cientos de usuarios interesados en tus productos.
-    </p>
+        </div>
 
-    <br><br>
-    <a href="tiendas.html">Buscar tiendas</a>
+        <!-- Destacado de Ofertas -->
+        <div class="banner-infobox">
+            <div class="info-texto">
+                <h3>Consultá los descuentos activos</h3>
+                <p>Aprovechá las promociones que las marcas publican en la plataforma.</p>
+            </div>
+            <div class="info-img">
+                <img src="./imagenes/oferta.png" alt="Ofertas ModaHub">
+            </div>
+        </div>
 
-    <script>
-        let usuario = localStorage.getItem("usuarioModaHub");
-        if (usuario) {
-            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
-            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
-        }
-        function cerrarSesion() {
-            localStorage.removeItem("usuarioModaHub");
-            location.reload();
-        }
-    </script>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="mapa-box">
+                <h4>Mapa de Tiendas y Showrooms</h4>
+                <img src="./imagenes/mapa.png" alt="Mapa de Ubicaciones ModaHub">
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 ModaHub - Comunidad de Moda Urbana</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
