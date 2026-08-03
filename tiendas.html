@@ -3,41 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModaHub - Tiendas</title>
+    <title>ModaHub - Tiendas y Showrooms</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
+    <!-- Header Fijo -->
     <header>
-        <h2>ModaHub</h2>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="mapa.html">Mapa</a>
-            <a href="tiendas.html" style="text-decoration: underline;">Tiendas</a>
-            <a href="curso.html">Curso</a>
-            <a href="blog.html">Blog</a>
-            <a href="cv.html">CV</a>
-            <a href="preguntas.html">Preguntas</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="extras.html">Extras</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="iniciosecion.html">Inicio de sesión</a>
-        </nav>
+        <div class="header-container">
+            <div class="logo-box">
+                <h1>ModaHub</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="tiendas.html">Tiendas</a>
+                <a href="tendencias.html">Tendencias</a>
+                <a href="ranking.html">Ranking</a>
+                <a href="preguntas.html">Preguntas</a>
+            </nav>
+        </div>
     </header>
 
-    <main style="padding: 20px;">
-        <h1 style="text-align: center;">Directorio de Tiendas y Showrooms</h1>
-        
-        <div style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
-            <h3>Dionysos (Ejemplo)</h3>
-            <p style="line-height: 1.6; text-align: justify;">
-                Una de las tiendas de energía y lanzamientos exclusivos de zapatillas y streetwear más importantes del país, con los últimos drops de marcas seleccionadas.
-            </p>
-            <div style="margin-top: 15px;">
-                <a href="https://www.digitalport.com.ar/" target="_blank" style="display: inline-block; padding: 10px 15px; background-color: #333; color: white; text-decoration: none; border-radius: 5px;">Visitar Tienda</a>
+    <!-- Contenido Principal -->
+    <main class="main-content">
+
+        <div class="encabezado-pagina">
+            <h2>Directorio de Tiendas y Showrooms</h2>
+            <p>Encontrá los locales físicos e independientes de indumentaria urbana cerca tuyo.</p>
+        </div>
+
+        <!-- Listado de Marcas y Showrooms -->
+        <div class="seccion-bloque">
+            <h3>Marcas con Locales Físicos</h3>
+            <div class="grid-tres-columnas">
+                <div class="card-item">
+                    <img src="./imagenes/nike.png" alt="Nike Store">
+                    <div class="card-info">
+                        <h4>Nike Official Store</h4>
+                        <p>Locales en centros comerciales y puntos oficiales.</p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <img src="./imagenes/adidas.png" alt="Adidas Store">
+                    <div class="card-info">
+                        <h4>Adidas Originals</h4>
+                        <p>Sucursales exclusivas de líneas urbanas y calzado.</p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <img src="./imagenes/zara.png" alt="Zara Store">
+                    <div class="card-info">
+                        <h4>Zara</h4>
+                        <p>Sucursales de moda y colecciones de temporada.</p>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Banner de Ubicación y Mapa -->
+        <div class="banner-infobox">
+            <div class="info-texto">
+                <h3>Geolocalización de Showrooms</h3>
+                <p>Consultá la ubicación geográfica exacta en el mapa de abajo para visitar los locales.</p>
+            </div>
+            <div class="info-img">
+                <img src="./imagenes/mapa.png" alt="Mapa de tiendas">
+            </div>
+        </div>
+
     </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="mapa-box">
+                <h4>Mapa de Tiendas y Showrooms</h4>
+                <img src="./imagenes/mapa.png" alt="Mapa de Ubicaciones ModaHub">
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 ModaHub - Comunidad de Moda Urbana</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
