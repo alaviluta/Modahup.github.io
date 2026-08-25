@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaHub - Inicio</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
     <!-- Header Fijo -->
@@ -13,11 +15,21 @@
         <div class="header-container">
             <div class="logo-box">
                 <h1>ModaHub</h1>
+                <p id="sesion"></p>
+                <div id="botonCerrar"></div>
             </div>
             <nav class="nav-menu">
                 <a href="index.html">Inicio</a>
+                <a href="mapa.html">Mapa</a>
+                <a href="tiendas.html">Tiendas</a>
+                <a href="curso.html">Curso</a>
+                <a href="blog.html">Blog</a>
+                <a href="cv.html">CV</a>
                 <a href="preguntas.html">Preguntas</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="extras.html">Extras</a>
                 <a href="ranking.html">Ranking</a>
+                <a href="iniciosecion.html">Inicio de sesión</a>
             </nav>
         </div>
     </header>
@@ -26,7 +38,7 @@
     <main class="main-content">
 
         <!-- Banner Principal -->
-        <div class="hero-section">
+        <section class="hero-section">
             <div class="hero-text">
                 <h2>Guía de Streetwear y Tiendas Urbanas</h2>
                 <p>Encontrá las mejores marcas, ubicaciones y tendencias del estilo urbano.</p>
@@ -34,10 +46,10 @@
             <div class="hero-image">
                 <img src="./imagenes/ropaurbana.png" alt="Ropa Urbana ModaHub">
             </div>
-        </div>
+        </section>
 
         <!-- Sección de Categorías y Outfits -->
-        <div class="seccion-bloque">
+        <section class="seccion-bloque">
             <h3>Categorías de Indumentaria</h3>
             <div class="grid-tres-columnas">
                 <div class="card-item">
@@ -49,7 +61,7 @@
                 <div class="card-item">
                     <img src="./imagenes/buzo.png" alt="Buzos">
                     <div class="card-info">
-                        <h4>Buzos & Hoodies</h4>
+                        <h4>Buzos &amp; Hoodies</h4>
                     </div>
                 </div>
                 <div class="card-item">
@@ -59,10 +71,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Marcas Destacadas -->
-        <div class="seccion-bloque">
+        <section class="seccion-bloque">
             <h3>Marcas Líderes</h3>
             <div class="grid-tres-columnas">
                 <div class="card-marca">
@@ -75,10 +87,10 @@
                     <img src="./imagenes/zara.png" alt="Zara">
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Novedades y Ofertas -->
-        <div class="seccion-bloque">
+        <section class="seccion-bloque">
             <div class="grid-dos-columnas">
                 <div class="card-doble">
                     <img src="./imagenes/tendencia.png" alt="Tendencia del mes">
@@ -95,7 +107,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
     </main>
 
@@ -111,6 +123,18 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button class="btn" onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
 
 </body>
 </html>
