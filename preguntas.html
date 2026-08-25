@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaHub - Preguntas Frecuentes</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
     <!-- Header Fijo -->
     <header>
         <div class="header-container">
             <div class="logo-box">
-                <h1>ModaHub</h1>
+                <h2>ModaHub</h2>
+                <p id="sesion"></p>
+                <div id="botonCerrar"></div>
             </div>
             <nav class="nav-menu">
                 <a href="index.html">Inicio</a>
-                <a href="preguntas.html">Preguntas</a>
+                <a href="mapa.html">Mapa</a>
+                <a href="tiendas.html">Tiendas</a>
+                <a href="curso.html">Curso</a>
+                <a href="blog.html">Blog</a>
+                <a href="cv.html">CV</a>
+                <a href="preguntas.html" style="text-decoration: underline;">Preguntas</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="extras.html">Extras</a>
                 <a href="ranking.html">Ranking</a>
+                <a href="iniciosecion.html">Inicio de sesión</a>
             </nav>
         </div>
     </header>
@@ -26,13 +38,13 @@
     <main class="main-content">
 
         <div class="encabezado-pagina">
-            <h2>Preguntas Frecuentes</h2>
+            <h1>Preguntas Frecuentes</h1>
             <p>Resolvemos las dudas habituales sobre la plataforma y las tiendas.</p>
         </div>
 
         <!-- Contenedor de preguntas agrupadas -->
         <div class="faq-wrapper">
-            
+
             <div class="pregunta-box">
                 <div class="pregunta-titulo">
                     <h3>¿Cómo funciona el ranking de marcas?</h3>
@@ -63,15 +75,15 @@
         </div>
 
         <!-- Destacado de Ofertas -->
-        <div class="banner-infobox">
-            <div class="info-texto">
+        <section class="banner-infobox seccion-bloque">
+            <div class="hero-text">
                 <h3>Consultá los descuentos activos</h3>
                 <p>Aprovechá las promociones que las marcas publican en la plataforma.</p>
             </div>
             <div class="info-img">
                 <img src="./imagenes/oferta.png" alt="Ofertas ModaHub">
             </div>
-        </div>
+        </section>
 
     </main>
 
@@ -88,5 +100,18 @@
         </div>
     </footer>
 
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button class="btn" onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
+
 </body>
+
 </html>
