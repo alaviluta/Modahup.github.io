@@ -3,71 +3,114 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Catálogo Zara Casual | Camisas Elegantes y Pantalones Urbanos</title>
-    <meta name="description" content="Explorá el catálogo de Zara en ModaHub. Descubrí camisas modernas, pantalones sofisticados y prendas de indumentaria casual para lucir un look impecable.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaHub - Tiendas y Showrooms</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
 
+    <!-- Header Fijo -->
     <header>
-        <h2>ModaHub</h2>
-        <p id="sesion"></p>
-        <div id="botonCerrar"></div>
-
-        <nav>
-            <a href="mapa.html">Mapa</a>
-            <a href="tiendas.html">Tiendas</a>
-            <a href="curso.html">Curso</a>
-            <a href="blog.html">Blog</a>
-            <a href="cv.html">CV</a>
-            <a href="preguntas.html">Preguntas</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="extras.html">Extras</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="iniciosecion.html">Inicio de sesión</a>
-        </nav>
+        <div class="header-container">
+            <div class="logo-box">
+                <h2>ModaHub</h2>
+                <p id="sesion"></p>
+                <div id="botonCerrar"></div>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="mapa.html">Mapa</a>
+                <a href="tiendas.html" style="text-decoration: underline;">Tiendas</a>
+                <a href="curso.html">Curso</a>
+                <a href="blog.html">Blog</a>
+                <a href="cv.html">CV</a>
+                <a href="preguntas.html">Preguntas</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="extras.html">Extras</a>
+                <a href="ranking.html">Ranking</a>
+                <a href="iniciosecion.html">Inicio de sesión</a>
+            </nav>
+        </div>
     </header>
 
-    <h1>Catálogo de Ropa Casual y Moderna Zara</h1>
+    <!-- Contenido Principal -->
+    <main class="main-content">
 
-    <img src="imagenes/zara.png" width="250" alt="Isotipo minimalista e institucional de la marca Zara">
+        <div class="encabezado-pagina">
+            <h1>Directorio de Tiendas y Showrooms</h1>
+            <p>Encontrá los locales físicos e independientes de indumentaria urbana cerca tuyo.</p>
+        </div>
 
-    <h2>Camisas Modernas para Outfits Casuales</h2>
-    <p>
-        Las camisas de la colección Zara ofrecen una alternativa sofisticada y sumamente versátil para quienes desean elevar la calidad estética de sus conjuntos urbanos diarios[cite: 15]. Elaboradas con mezclas textiles ligeras, linos frescos y algodones premium de excelente caída, estas prendas se adaptan con facilidad tanto a eventos formales de trabajo como a salidas informales durante el fin de semana[cite: 15]. Sus variados diseños abarcan desde patrones lisos minimalistas hasta estampados contemporáneos muy llamativos.
-    </p>
+        <!-- Listado de Marcas y Showrooms -->
+        <section class="seccion-bloque">
+            <h3>Marcas con Locales Físicos</h3>
+            <div class="grid-tres-columnas">
+                <div class="card-item">
+                    <img src="./imagenes/nike.png" alt="Nike Store">
+                    <div class="card-info">
+                        <h4>Nike Official Store</h4>
+                        <p>Locales en centros comerciales y puntos oficiales.</p>
+                    </div>
+                </div>
 
-    <img src="imagenes/remera.png" width="250" alt="Prenda superior casual o camisa de diseño moderno marca Zara">
+                <div class="card-item">
+                    <img src="./imagenes/adidas.png" alt="Adidas Store">
+                    <div class="card-info">
+                        <h4>Adidas Originals</h4>
+                        <p>Sucursales exclusivas de líneas urbanas y calzado.</p>
+                    </div>
+                </div>
 
-    <h2>Pantalones de Corte Precise y Estilo Ejecutivo</h2>
-    <p>
-        Un pantalón bien confeccionado constituye la base estructural de cualquier look exitoso, y Zara destaca notablemente en esta área de la sastrería moderna[cite: 15]. Su catálogo incluye pantalones chinos clásicos, diseños tipo cargo ideales para la cultura urbana y cortes holgados estructurados que garantizan una comodidad absoluta durante todo el día[cite: 15]. Son prendas sumamente fáciles de combinar con calzado deportivo o zapatos formales, aportando un aire de distinción único y actual[cite: 15].
-    </p>
+                <div class="card-item">
+                    <img src="./imagenes/zara.png" alt="Zara Store">
+                    <div class="card-info">
+                        <h4>Zara</h4>
+                        <p>Sucursales de moda y colecciones de temporada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <img src="imagenes/ropaurbana.png" width="250" alt="Pantalones urbanos modernos y ropa casual de Zara en exhibición">
+        <!-- Banner de Ubicación y Mapa -->
+        <section class="banner-infobox seccion-bloque">
+            <div class="hero-text">
+                <h3>Geolocalización de Showrooms</h3>
+                <p>Consultá la ubicación geográfica exacta en el mapa de abajo para visitar los locales.</p>
+            </div>
+            <div class="info-img">
+                <img src="./imagenes/mapa.png" alt="Mapa de tiendas">
+            </div>
+        </section>
 
-    <h3>Cómo incorporar la moda casual a tu guardarropa diario</h3>
-    <p>
-        La clave para lucir de forma impecable las propuestas de este catálogo consiste en saber mezclar texturas de manera equilibrada. Combinar una camisa formal texturada con pantalones de gabardina más relajados y zapatillas urbanas neutras genera un balance visual moderno sumamente atractivo y alinedo a las tendencias internacionales de indumentaria. Te invitamos a explorar nuestras secciones complementarias para conocer más sobre accesorios sofisticados y combinaciones cromáticas de temporada.
-    </p>
+    </main>
 
-    <br><br>
-    <a href="extras.html">Ver más ropa urbana</a>
-    <br><br>
-    <a href="https://www.zara.com" target="_blank">Página oficial Zara</a>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="mapa-box">
+                <h4>Mapa de Tiendas y Showrooms</h4>
+                <img src="./imagenes/mapa.png" alt="Mapa de Ubicaciones ModaHub">
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 ModaHub - Comunidad de Moda Urbana</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         let usuario = localStorage.getItem("usuarioModaHub");
         if (usuario) {
             document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
-            document.getElementById("botonCerrar").innerHTML = '<button onclick="cerrarSesion()">Cerrar sesión</button>';
+            document.getElementById("botonCerrar").innerHTML = '<button class="btn" onclick="cerrarSesion()">Cerrar sesión</button>';
         }
         function cerrarSesion() {
             localStorage.removeItem("usuarioModaHub");
             location.reload();
         }
     </script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
