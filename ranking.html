@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaHub - Ranking</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
     <!-- Header Fijo -->
     <header>
         <div class="header-container">
             <div class="logo-box">
-                <h1>ModaHub</h1>
+                <h2>ModaHub</h2>
+                <p id="sesion"></p>
+                <div id="botonCerrar"></div>
             </div>
             <nav class="nav-menu">
                 <a href="index.html">Inicio</a>
+                <a href="mapa.html">Mapa</a>
+                <a href="tiendas.html">Tiendas</a>
+                <a href="curso.html">Curso</a>
+                <a href="blog.html">Blog</a>
+                <a href="cv.html">CV</a>
                 <a href="preguntas.html">Preguntas</a>
-                <a href="ranking.html">Ranking</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="extras.html">Extras</a>
+                <a href="ranking.html" style="text-decoration: underline;">Ranking</a>
+                <a href="iniciosecion.html">Inicio de sesión</a>
             </nav>
         </div>
     </header>
@@ -26,15 +38,15 @@
     <main class="main-content">
 
         <div class="encabezado-pagina">
-            <h2>Ranking de la Comunidad</h2>
+            <h1>Ranking de la Comunidad</h1>
             <p>Las marcas y prendas más votadas según la calidad textil y popularidad.</p>
         </div>
 
         <!-- Ranking de Marcas -->
-        <div class="ranking-wrapper">
+        <section class="ranking-wrapper seccion-bloque">
             <h3>Top Marcas</h3>
             <div class="lista-ranking">
-                
+
                 <div class="item-ranking">
                     <div class="puesto-numero">#1</div>
                     <div class="item-img">
@@ -69,13 +81,13 @@
                 </div>
 
             </div>
-        </div>
+        </section>
 
         <!-- Ranking de Categorías -->
-        <div class="ranking-wrapper">
+        <section class="ranking-wrapper seccion-bloque">
             <h3>Prendas Más Buscadas</h3>
             <div class="lista-ranking">
-                
+
                 <div class="item-ranking">
                     <div class="puesto-numero">#1</div>
                     <div class="item-img">
@@ -97,7 +109,7 @@
                 </div>
 
             </div>
-        </div>
+        </section>
 
     </main>
 
@@ -114,5 +126,18 @@
         </div>
     </footer>
 
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button class="btn" onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
+
 </body>
+
 </html>
