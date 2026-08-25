@@ -1,52 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaHub - Iniciar Sesión</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
+    <!-- Header Fijo -->
     <header>
-        <h2>ModaHub</h2>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="mapa.html">Mapa</a>
-            <a href="tiendas.html">Tiendas</a>
-            <a href="curso.html">Curso</a>
-            <a href="blog.html">Blog</a>
-            <a href="cv.html">CV</a>
-            <a href="preguntas.html">Preguntas</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="extras.html">Extras</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="iniciosecion.html" style="text-decoration: underline;">Inicio de sesión</a>
-        </nav>
+        <div class="header-container">
+            <div>
+                <h2>ModaHub</h2>
+                <p id="sesion"></p>
+                <div id="botonCerrar"></div>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="mapa.html">Mapa</a>
+                <a href="tiendas.html">Tiendas</a>
+                <a href="curso.html">Curso</a>
+                <a href="blog.html">Blog</a>
+                <a href="cv.html">CV</a>
+                <a href="preguntas.html">Preguntas</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="extras.html">Extras</a>
+                <a href="ranking.html">Ranking</a>
+                <a href="iniciosecion.html" style="text-decoration: underline;">Inicio de sesión</a>
+            </nav>
+        </div>
     </header>
 
-    <main style="padding: 20px;">
-        <div style="max-width: 400px; margin: 40px auto; padding: 30px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
-            <h2 style="text-align: center; margin-bottom: 20px;">Ingresá a tu Cuenta</h2>
-            
-            <form>
+    <!-- Contenido Principal -->
+    <main class="main-content">
+
+        <div class="encabezado-pagina">
+            <h1>Acceso a la Comunidad ModaHub</h1>
+        </div>
+
+        <section class="seccion-bloque" style="max-width: 480px; margin: 0 auto;">
+            <h2>Ingresá a tu Cuenta</h2>
+
+            <form id="loginForm" onsubmit="guardarSesion(event)">
                 <div style="margin-bottom: 15px;">
                     <label style="display: block; margin-bottom: 5px;">Usuario o Email:</label>
-                    <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" required>
+                    <input type="text" id="usuarioInput" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;" required>
                 </div>
-                
+
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 5px;">Contraseña:</label>
-                    <input type="password" style="width: 100%; padding: 8px; box-sizing: border-box;" required>
+                    <input type="password" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;" required>
                 </div>
 
                 <div style="display: flex; justify-content: center; gap: 15px; width: 100%;">
-                    <button type="submit" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Entrar</button>
-                    <button type="button" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Registrarse</button>
+                    <button type="submit" class="btn-accion">Entrar</button>
+                    <button type="button" class="btn">Registrarse</button>
                 </div>
             </form>
-        </div>
+        </section>
+
     </main>
 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-copy">
+                <p>&copy; 2026 ModaHub - Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button class="btn" onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+
+        function guardarSesion(e) {
+            e.preventDefault();
+            let nombreUsuario = document.getElementById("usuarioInput").value;
+            if (nombreUsuario.trim() !== "") {
+                localStorage.setItem("usuarioModaHub", nombreUsuario);
+                window.location.href = "index.html";
+            }
+        }
+
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
+
 </body>
+
 </html>
