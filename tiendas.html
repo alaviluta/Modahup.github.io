@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModaHub - Tiendas y Showrooms</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
     <!-- Header Fijo -->
     <header>
         <div class="header-container">
             <div class="logo-box">
-                <h1>ModaHub</h1>
+                <h2>ModaHub</h2>
+                <p id="sesion"></p>
+                <div id="botonCerrar"></div>
             </div>
             <nav class="nav-menu">
                 <a href="index.html">Inicio</a>
-                <a href="tiendas.html">Tiendas</a>
-                <a href="tendencias.html">Tendencias</a>
-                <a href="ranking.html">Ranking</a>
+                <a href="mapa.html">Mapa</a>
+                <a href="tiendas.html" style="text-decoration: underline;">Tiendas</a>
+                <a href="curso.html">Curso</a>
+                <a href="blog.html">Blog</a>
+                <a href="cv.html">CV</a>
                 <a href="preguntas.html">Preguntas</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="extras.html">Extras</a>
+                <a href="ranking.html">Ranking</a>
+                <a href="iniciosecion.html">Inicio de sesión</a>
             </nav>
         </div>
     </header>
@@ -28,12 +38,12 @@
     <main class="main-content">
 
         <div class="encabezado-pagina">
-            <h2>Directorio de Tiendas y Showrooms</h2>
+            <h1>Directorio de Tiendas y Showrooms</h1>
             <p>Encontrá los locales físicos e independientes de indumentaria urbana cerca tuyo.</p>
         </div>
 
         <!-- Listado de Marcas y Showrooms -->
-        <div class="seccion-bloque">
+        <section class="seccion-bloque">
             <h3>Marcas con Locales Físicos</h3>
             <div class="grid-tres-columnas">
                 <div class="card-item">
@@ -60,18 +70,18 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Banner de Ubicación y Mapa -->
-        <div class="banner-infobox">
-            <div class="info-texto">
+        <section class="banner-infobox seccion-bloque">
+            <div class="hero-text">
                 <h3>Geolocalización de Showrooms</h3>
                 <p>Consultá la ubicación geográfica exacta en el mapa de abajo para visitar los locales.</p>
             </div>
             <div class="info-img">
                 <img src="./imagenes/mapa.png" alt="Mapa de tiendas">
             </div>
-        </div>
+        </section>
 
     </main>
 
@@ -88,5 +98,19 @@
         </div>
     </footer>
 
+    <script>
+        let usuario = localStorage.getItem("usuarioModaHub");
+        if (usuario) {
+            document.getElementById("sesion").innerHTML = "Sesión iniciada: " + usuario;
+            document.getElementById("botonCerrar").innerHTML = '<button class="btn" onclick="cerrarSesion()">Cerrar sesión</button>';
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioModaHub");
+            location.reload();
+        }
+    </script>
+    <script src="script.js"></script>
+
 </body>
+
 </html>
