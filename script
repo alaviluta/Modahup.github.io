@@ -1,256 +1,191 @@
-/* ==========================================================================
-   1. MOSTRAR MENSAJES O ALERTAS AL CARGAR LA PÁGINA
-   ========================================================================== */
-window.addEventListener("DOMContentLoaded", () => {
-    // Solo muestra la bienvenida si es la página de inicio (index.html)
-    if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
-        alert("¡Bienvenido/a a nuestro Portal de Moda e Indumentaria Urbana!");
-    }
-});
-
-
-/* ==========================================================================
-   2. VALIDACIÓN DE FORMULARIOS Y 7. FORMULARIO CON RESUMEN
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-    // Buscamos si existe un formulario de contacto o registro en la página
-    const formulario = document.querySelector(".formulario-contacto form, .formulario-login form");
 
+    // ==========================================
+    // 0. CORRECCIÓN Y REVISIÓN DE RUTAS DE IMÁGENES
+    // ==========================================
+    const todasLasImagenes = document.querySelectorAll("img");
+    todasLasImagenes.forEach(img => {
+        img.addEventListener("error", function () {
+            let nombreArchivo = this.src.split('/').pop();
+            // Intento 1: Buscar directamente en la carpeta raíz
+            if (!this.dataset.intento) {
+                this.dataset.intento = "1";
+                this.src = "./" + nombreArchivo;
+            }
+            // Intento 2: Buscar dentro de la carpeta /imagenes/
+            else if (this.dataset.intento === "1") {
+                this.dataset.intento = "2";
+                this.src = "./imagenes/" + nombreArchivo;
+            }
+            // Si no existe, colocar imagen base de reemplazo
+            else {
+                this.src = "https://via.placeholder.com/300x200?text=Imagen+no+encontrada";
+            }
+        });
+    });
+
+    // ==========================================
+    // 1. ALERTA AL CARGAR LA PÁGINA
+    // ==========================================
+    alert("¡Bienvenido a ModaHub! Explora nuestras tiendas, cursos y novedades.");
+
+    // ==========================================
+    // 3. FECHA Y HORA EN TIEMPO REAL
+    // ==========================================
+    const headerContainer = document.querySelector(".header-container");
+    if (headerContainer) {
+        const cajaReloj = document.createElement("div");
+        cajaReloj.className = "reloj-box";
+        cajaReloj.id = "reloj-envivo";
+        headerContainer.appendChild(cajaReloj);
+
+        function actualizarTiempo() {
+            const horaActual = new Date();
+            cajaReloj.textContent = horaActual.toLocaleString("es-AR");
+        }
+        setInterval(actualizarTiempo, 1000);
+        actualizarTiempo();
+    }
+
+    // ==========================================
+    // 6. MODO OSCURO (TOGGLE)
+    // ==========================================
+    const navMenu = document.querySelector(".nav-menu");
+    if (navMenu) {
+        const botonModo = document.createElement("button");
+        botonModo.textContent = "🌙 Modo Oscuro";
+        botonModo.style.cssText = "cursor:pointer; padding: 6px 12px; border-radius: 4px; border: none; background: #333; color: #fff;";
+        
+        botonModo.addEventListener("click", () => {
+            document.body.classList.toggle("modo-oscuro");
+            const esOscuro = document.body.classList.contains("modo-oscuro");
+            botonModo.textContent = esOscuro ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
+            botonModo.style.background = esOscuro ? "#fff" : "#333";
+            botonModo.style.color = esOscuro ? "#000" : "#fff";
+        });
+        navMenu.appendChild(botonModo);
+    }
+
+    // ==========================================
+    // 4. MENÚS INTERACTIVOS (ACORDEÓN)
+    // ==========================================
+    const titulosAcordeon = document.querySelectorAll(".acordeon-titulo");
+    titulosAcordeon.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const contenido = btn.nextElementSibling;
+            if (contenido && contenido.classList.contains("acordeon-contenido")) {
+                contenido.classList.toggle("activo");
+            }
+        });
+    });
+
+    // ==========================================
+    // 5. GALERÍA DE IMÁGENES Y AMPLIACIÓN EN MODAL
+    // ==========================================
+    const listaImagenes = [
+        "./imagenes/nike.png",
+        "./imagenes/adidas.png",
+        "./imagenes/buzo.png",
+        "./imagenes/outfit.png",
+        "./imagenes/pantalon.png",
+        "./imagenes/remera.png",
+        "./imagenes/moda.png",
+        "./imagenes/moda2.png",
+        "./imagenes/oferta.png"
+    ];
+    let posGaleria = 0;
+    const imgVisorGaleria = document.getElementById("galeria-principal");
+    const btnAnt = document.getElementById("btn-anterior");
+    const btnSig = document.getElementById("btn-siguiente");
+
+    if (imgVisorGaleria && btnAnt && btnSig) {
+        btnAnt.addEventListener("click", () => {
+            posGaleria = (posGaleria - 1 + listaImagenes.length) % listaImagenes.length;
+            imgVisorGaleria.src = listaImagenes[posGaleria];
+        });
+
+        btnSig.addEventListener("click", () => {
+            posGaleria = (posGaleria + 1) % listaImagenes.length;
+            imgVisorGaleria.src = listaImagenes[posGaleria];
+        });
+    }
+
+    // Modal para ampliar imágenes al hacer clic
+    const modalVentana = document.createElement("div");
+    modalVentana.className = "modal-visor";
+    modalVentana.innerHTML = `
+        <img id="imagen-modal-ampliada" src="" alt="Imagen Ampliada">
+        <span id="cerrar-modal-btn" style="position:absolute; top:20px; right:35px; color:#fff; font-size:40px; cursor:pointer;">&times;</span>
+    `;
+    document.body.appendChild(modalVentana);
+
+    const imagenesAmpliables = document.querySelectorAll("img");
+    imagenesAmpliables.forEach(imagen => {
+        imagen.addEventListener("click", () => {
+            if (imagen.id !== "imagen-modal-ampliada") {
+                document.getElementById("imagen-modal-ampliada").src = imagen.src;
+                modalVentana.style.display = "flex";
+            }
+        });
+    });
+
+    document.getElementById("cerrar-modal-btn").addEventListener("click", () => {
+        modalVentana.style.display = "none";
+    });
+
+    // ==========================================
+    // 2 Y 7. VALIDACIÓN DE FORMULARIO Y RESUMEN
+    // ==========================================
+    const formulario = document.querySelector("form");
     if (formulario) {
-        // Creamos dinámicamente un contenedor para el Resumen del Formulario (Punto 7)
-        const resumenDiv = document.createElement("div");
-        resumenDiv.id = "resumen-formulario";
-        resumenDiv.style.display = "none";
-        resumenDiv.style.marginTop = "20px";
-        resumenDiv.style.padding = "15px";
-        resumenDiv.style.border = "2px solid #28a745";
-        resumenDiv.style.backgroundColor = "#e8f8f5";
-        resumenDiv.style.borderRadius = "5px";
-        formulario.parentNode.appendChild(resumenDiv);
+        formulario.addEventListener("submit", (evento) => {
+            evento.preventDefault();
+            let formularioValido = true;
 
-        formulario.addEventListener("submit", (e) => {
-            e.preventDefault(); // Detenemos el envío por defecto para validar primero
+            // Limpiar alertas de error previas
+            document.querySelectorAll(".mensaje-error").forEach(error => error.remove());
 
-            let esValido = true;
-            
-            // Limpiar errores previos
-            document.querySelectorAll(".mensaje-error").forEach(el => el.remove());
-
-            // Validar Campos No Vacíos y Formato de Email
-            const inputs = formulario.querySelectorAll("input[type='text'], input[type='email'], input[type='password'], textarea");
-
-            inputs.forEach(input => {
-                // 2. Verificar que no esté vacío
-                if (input.value.trim() === "") {
-                    mostrarError(input, "Este campo no puede estar vacío.");
-                    esValido = false;
-                } 
-                // 2. Validar formato de correo electrónico
-                else if (input.type === "email") {
-                    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!regexEmail.test(input.value.trim())) {
-                        mostrarError(input, "Ingresá un correo electrónico válido (ejemplo@dominio.com).");
-                        esValido = false;
-                    }
+            // 1. Validar campos no vacíos
+            const camposRequeridos = formulario.querySelectorAll("[required]");
+            camposRequeridos.forEach(campo => {
+                if (!campo.value.trim()) {
+                    mostrarMensajeError(campo, "Este campo no puede estar vacío.");
+                    formularioValido = false;
                 }
             });
 
-            // 7. MOSTRAR RESUMEN DE DATOS ANTES DE ENVIAR
-            if (esValido) {
-                let HTMLResumen = "<h3>Resumen de Datos a Enviar:</h3><ul>";
-                inputs.forEach(input => {
-                    if (input.type !== "password") { // Por seguridad no mostramos contraseñas
-                        HTMLResumen += `<li><strong>${input.name || input.id}:</strong> ${input.value}</li>`;
-                    }
-                });
-                HTMLResumen += "</ul><p><em>¿Confirmás que los datos son correctos? Revisa tu bandeja de entrada pronto.</em></p>";
-                
-                resumenDiv.innerHTML = HTMLResumen;
-                resumenDiv.style.display = "block";
-            }
-        });
-    }
-});
-
-// Función auxiliar para mostrar mensajes de error personalizados debajo del campo (Punto 2)
-function mostrarError(elementoInput, mensaje) {
-    const errorDiv = document.createElement("small");
-    errorDiv.className = "mensaje-error";
-    errorDiv.style.color = "#dc3545";
-    errorDiv.style.display = "block";
-    errorDiv.style.marginTop = "5px";
-    errorDiv.textContent = mensaje;
-    elementoInput.parentNode.appendChild(errorDiv);
-}
-
-
-/* ==========================================================================
-   3. FECHA Y HORA EN TIEMPO REAL
-   ========================================================================== */
-document.addEventListener("DOMContentLoaded", () => {
-    // Creamos un reloj flotante en el pie del navegador
-    const contenedorReloj = document.createElement("div");
-    contenedorReloj.id = "reloj-vivo";
-    contenedorReloj.style.position = "fixed";
-    contenedorReloj.style.bottom = "10px";
-    contenedorReloj.style.right = "10px";
-    contenedorReloj.style.backgroundColor = "rgba(0,0,0,0.8)";
-    contenedorReloj.style.color = "#fff";
-    contenedorReloj.style.padding = "8px 15px";
-    contenedorReloj.style.borderRadius = "20px";
-    contenedorReloj.style.fontSize = "12px";
-    contenedorReloj.style.zIndex = "1000";
-    document.body.appendChild(contenedorReloj);
-
-    function actualizarFechaHora() {
-        const ahora = new Date();
-        const opcionesFecha = { year: 'numeric', month: 'long', day: 'numeric' };
-        const fecha = ahora.toLocaleDateString('es-ES', opcionesFecha);
-        const hora = ahora.toLocaleTimeString('es-ES');
-        
-        contenedorReloj.textContent = `${fecha} - ${hora}`;
-    }
-
-    actualizarFechaHora();
-    setInterval(actualizarFechaHora, 1000); // Actualiza cada 1 segundo
-});
-
-
-/* ==========================================================================
-   4. MENÚS INTERACTIVOS (ACORDEÓN / MOSTRAR Y OCULTAR SECCIONES)
-   ========================================================================== */
-document.addEventListener("DOMContentLoaded", () => {
-    // Se activa principalmente en secciones como Preguntas Frecuentes (.faq-item)
-    const titulosAcordeon = document.querySelectorAll(".faq-item h2, .bloque-producto h2");
-
-    titulosAcordeon.forEach(titulo => {
-        titulo.style.cursor = "pointer";
-        titulo.title = "Haz clic para desplegar/ocultar";
-
-        titulo.addEventListener("click", () => {
-            let contenido = titulo.nextElementSibling;
-            while (contenido && contenido.tagName !== "H2") {
-                if (contenido.style.display === "none") {
-                    contenido.style.display = "block";
-                } else {
-                    contenido.style.display = "none";
+            // 2. Validar correo electrónico
+            const campoEmail = formulario.querySelector('input[type="email"]');
+            if (campoEmail && campoEmail.value.trim() !== "") {
+                const patronEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!patronEmail.test(campoEmail.value.trim())) {
+                    mostrarMensajeError(campoEmail, "Por favor ingrese un correo válido (ejemplo@dominio.com).");
+                    formularioValido = false;
                 }
-                contenido = contenido.nextElementSibling;
+            }
+
+            // 3. Resumen previo a enviar
+            if (formularioValido) {
+                const datosFormulario = new FormData(formulario);
+                let resumenTexto = "=== RESUMEN DE DATOS ===\n\n";
+
+                datosFormulario.forEach((valor, clave) => {
+                    resumenTexto += `${clave.toUpperCase()}: ${valor}\n`;
+                });
+
+                const confirmacion = confirm(resumenTexto + "\n¿Los datos son correctos? Presione Aceptar para enviar.");
+                if (confirmacion) {
+                    alert("¡Formulario enviado con éxito!");
+                    formulario.reset();
+                }
             }
         });
-    });
-});
-
-
-/* ==========================================================================
-   5. GALERÍA DE IMÁGENES INTERACTIVA (SLIDER Y AMPLIA LUZ)
-   ========================================================================== */
-// Variables de la galería
-const listaImagenes = [
-    "imagenes/ropaurbana.png",
-    "imagenes/zapatillas.png",
-    "imagenes/remera.png",
-    "imagenes/nike.png",
-    "imagenes/adidas.png"
-];
-let indiceImagenActual = 0;
-
-function cambiarImagenModal(direccion) {
-    indiceImagenActual += direccion;
-    if (indiceImagenActual < 0) {
-        indiceImagenActual = listaImagenes.length - 1;
-    } else if (indiceImagenActual >= listaImagenes.length) {
-        indiceImagenActual = 0;
     }
-    const imgAmpliada = document.getElementById("imagen-ampliada-modal");
-    if (imgAmpliada) {
-        imgAmpliada.src = listaImagenes[indiceImagenActual];
-    }
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Hacer clic en cualquier imagen de la página para ampliarla
-    const imagenesPagina = document.querySelectorAll("img");
-
-    // Modal Contenedor para Imagen Ampliada
-    const modal = document.createElement("div");
-    modal.id = "modal-galeria";
-    modal.style.display = "none";
-    modal.style.position = "fixed";
-    modal.style.top = "0";
-    modal.style.left = "0";
-    modal.style.width = "100%";
-    modal.style.height = "100%";
-    modal.style.backgroundColor = "rgba(0,0,0,0.85)";
-    modal.style.zIndex = "2000";
-    modal.style.justifyContent = "center";
-    modal.style.alignItems = "center";
-    modal.style.flexDirection = "column";
-
-    modal.innerHTML = `
-        <span id="cerrar-modal" style="position:absolute; top:20px; right:35px; color:#fff; font-size:40px; cursor:pointer;">&times;</span>
-        <div style="display:flex; align-items:center; gap:15px;">
-            <button id="btn-ant" style="padding:10px 15px; font-size:18px; cursor:pointer;">&#10094; Ant</button>
-            <img id="imagen-ampliada-modal" src="" style="max-width:80vw; max-height:70vh; border-radius:8px; border:3px solid #fff;">
-            <button id="btn-sig" style="padding:10px 15px; font-size:18px; cursor:pointer;">Sig &#10095;</button>
-        </div>
-    `;
-    document.body.appendChild(modal);
-
-    const imgModal = document.getElementById("imagen-ampliada-modal");
-    const cerrarBtn = document.getElementById("cerrar-modal");
-
-    // Al hacer clic en miniatura -> abrir ampliación
-    imagenesPagina.forEach(img => {
-        img.style.cursor = "zoom-in";
-        img.addEventListener("click", () => {
-            imgModal.src = img.src;
-            modal.style.display = "flex";
-        });
-    });
-
-    // Eventos de botones Siguiente y Anterior (Punto 5)
-    document.getElementById("btn-ant").addEventListener("click", () => cambiarImagenModal(-1));
-    document.getElementById("btn-sig").addEventListener("click", () => cambiarImagenModal(1));
-
-    // Cerrar modal
-    cerrarBtn.addEventListener("click", () => modal.style.display = "none");
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) modal.style.display = "none";
-    });
-});
-
-
-/* ==========================================================================
-   6. CAMBIAR EL TEMA DE LA PÁGINA (MODO OSCURO)
-   ========================================================================== */
-document.addEventListener("DOMContentLoaded", () => {
-    const barraNavegacion = document.querySelector("nav");
-
-    if (barraNavegacion) {
-        // Crear el botón conmutador de Modo Oscuro
-        const botonModoOscuro = document.createElement("button");
-        botonModoOscuro.id = "btn-modo-oscuro";
-        botonModoOscuro.textContent = "🌙 Modo Oscuro";
-        botonModoOscuro.style.marginLeft = "auto";
-        botonModoOscuro.style.padding = "5px 10px";
-        botonModoOscuro.style.cursor = "pointer";
-        botonModoOscuro.style.borderRadius = "5px";
-        botonModoOscuro.style.border = "none";
-        botonModoOscuro.style.backgroundColor = "#333";
-        botonModoOscuro.style.color = "#fff";
-
-        barraNavegacion.appendChild(botonModoOscuro);
-
-        // Toggle de la clase CSS modo-oscuro en el body
-        botonModoOscuro.addEventListener("click", () => {
-            document.body.classList.toggle("modo-oscuro");
-
-            if (document.body.classList.contains("modo-oscuro")) {
-                botonModoOscuro.textContent = "☀️ Modo Claro";
-            } else {
-                botonModoOscuro.textContent = "🌙 Modo Oscuro";
-            }
-        });
+    function mostrarMensajeError(elemento, mensaje) {
+        const textoError = document.createElement("span");
+        textoError.className = "mensaje-error";
+        textoError.textContent = mensaje;
+        elemento.parentNode.insertBefore(textoError, elemento.nextSibling);
     }
 });
